@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>PowerQ+</title>
+  <style type="text/css">
+    body,td,th {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      margin: 20px 40px 10px 40px;
+    }        
+  </style>
+  <script src="library/jquery-1.9.1.js"></script>
+  <link rel="stylesheet" type="text/css" href="scripts/Main.css" />
+</head>
+<script type="text/javascript">
+  function defineDB()
+  {
+//  var addr = "http://powerq.comp.nus.edu.sg/database?page=graph&dataset=" + $("select[name=dataset]").val();
+    var addr = "http://localhost:8080/PowerQDemo/database?page=graph&dataset=" + $("select[name=dataset]").val();
+    window.open(addr);
+  }
+</script>
+<body>
+  <table align="center">
+    <tbody>
+      <tr>
+        <td height="200" align="center">
+          <img src="images/logo.png" border="0" />
+        </td>
+      </tr>
+      <tr>
+        <td height="80" align="left" valign="bottom">
+          <form action="powerq" method="post">
+            <input name="searchBox" type="text" id="searchBox" size="68" /> 
+            <input name="submit" type="submit" value="Search!" style="height: 25px; width: 100px" /> 
+            <label for="dataset">DataSet:</label> 
+            <select name="dataset" id="dataset">
+              <option value="acmdl" selected="selected">ACMDL</option>
+              <option value="imdb">IMDB</option>
+              <option value="employee">Employee</option>
+            </select>
+            <br>
+            (<strong>
+              <a href="http://powerq.comp.nus.edu.sg/introduction.html#samplequery">Sample Queries</a>&nbsp;&nbsp;
+              <a href="http://powerq.comp.nus.edu.sg/DBProject/">Temporal Database Design</a>
+            </strong>)
+            <!--(<strong>
+              <a href="javascript:defineDB();">Modify DB Graph</a>
+            </strong>)            -->
+            <input type="hidden" name="page" value="homepage" />
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+  <br />
+  <table width="800" align="center">
+    <tbody>
+      <tr>
+        <td colspan="3">
+          <hr>
+          <br>
+        </td>
+      </tr>
+      <tr>
+        <td width="170"></td>
+        <td>
+          <img src="images/FIL1957.jpg" width="70" height="70" />
+        </td>
+        <td>
+          <strong>
+            <a href="http://powerq.comp.nus.edu.sg/introduction.html#question1" style="text-decoration: none;">1. What is PowerQ+?</a>
+          </strong>
+        </td>
+      </tr>
+      <tr>
+        <td width="170"></td>
+        <td>
+          <img src="images/FIL1967.jpg" width="70" height="70" />
+        </td>
+        <td>
+          <strong>
+            <a href="http://powerq.comp.nus.edu.sg/introduction.html#question2" style="text-decoration: none;">2. How to use the system?</a>
+          </strong>
+        </td>
+      </tr>
+      <tr>
+        <td width="170"></td>
+        <td>
+          <img src="images/FIL1965.jpg" width="70" height="70" />
+        </td>
+        <td>
+          <strong>
+            <a href="http://powerq.comp.nus.edu.sg/introduction.html#question3" style="text-decoration: none;">3. What can I search in the system?
+            <br />&nbsp;&nbsp;&nbsp;(sample queries here)</a>
+          </strong>
+        </td>
+      </tr>
+      <tr>
+        <td width="170"></td>
+        <td>
+          <img src="images/FIL1975.jpg" width="70" height="70" />
+        </td>
+        <td>
+          <strong>
+            <a href="http://powerq.comp.nus.edu.sg/introduction.html#question4" style="text-decoration: none;">4. Publications</a>
+          </strong>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3"></td>
+      </tr>
+      <tr>
+        <td colspan="3"></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

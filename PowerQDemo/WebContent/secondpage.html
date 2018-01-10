@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>PowerQ+</title>
+  <style type="text/css">
+  td,th {
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 14px;
+   }
+
+   img {
+     border: 0;
+   }
+
+  .STYLE1 {
+    color: #CC0033;
+    font-weight: bold;
+  }
+  .STYLE2 {
+    color: #0099CC;
+    font-weight: bold;
+  }
+
+  </style>
+  <script src="library/jquery-1.9.1.js"></script>
+  <script src="library/jquery-ui.js"></script>
+  <script src="library/raphael.js"></script>
+  <script src="library/xmlsax.js"></script>
+  <link rel="stylesheet" href="library/jquery-ui.css" />
+  <script src="scripts/SaxEventHandler.js"></script>
+  <script src="scripts/XmlLayoutParser.js"></script>
+  <script src="scripts/Pattern.js"></script>
+  <script src="scripts/Main.js"></script>
+  <link rel="stylesheet" type="text/css" href="scripts/Main.css" />
+
+
+
+</head>
+  <script type="text/javascript">
+    function navPage(p)
+    {
+      var addr = "http://localhost:8080/PowerQ/powerq?page=query&pageIndex=" + p;
+      window.location = addr;
+    }
+    var currentForm;
+    $(function() {
+      
+      $("#dialog").dialog({
+        autoOpen: false,
+        show: {
+        effect: "blind",
+        duration: 200
+        },
+        hide: {
+        effect: "blind",
+        duration: 200
+        },
+        resizable: false,
+        height: 200,
+        modal: true,
+        buttons: {
+          'OK': function() {
+            $(this).dialog('close');
+            currentForm.submit();
+          },
+          'Cancel': function() {
+            $(this).dialog('close');
+          }
+        }
+      });
+      $(".confirm").click(function() {
+        currentForm = $(this).closest('form');
+        $("#dialog").dialog('open');
+        return false;
+      });
+    });
+
+  </script>
+  <script>
+    var patternXML = [];
+
+    //patternXML[0]="<Course_1_r_0_o Func=\"COUNT_f_ (Code_k_)\"><Teach_0_r Cond=\"Salary OVERLAPS_p_ and [1999-01-01,2016-11-14]_p_\"><Lecturer_0_o Cond=\"Salary OVERLAPS and [1999-01-01, 2016-11-14]\">leaf</Lecturer_0_o></Teach_0_r><Enrol_0_r><Student_0_o Cond=\"Sname = Green_k_\" Func=\"GROUPBY_f_ (Sid)\">leaf</Student_0_o></Enrol_0_r></Course_1_r_0_o>";
+
+     patternXML[0]="<employee_k__1_r_0_o><workfor_0_r Pred=\"workfor AFTER_p_ and [2015,2016]\"><department_0_o Cond=\"name = research_k_\">leaf</department_0_o></workfor_0_r></employee_k__1_r_0_o>";
+
+     patternXML[1]="<Course_1_r_0_o Func=\"COUNT_f_ (Code_k_)\"><Teach_0_r><Lecturer_0_o Cond=\"Lname = George_k_\">leaf</Lecturer_0_o></Teach_0_r><Enrol_0_r><Student_0_o Cond=\"Sname = Green_k_\">leaf</Student_0_o></Enrol_0_r></Course_1_r_0_o>";
+
+     patternXML[2]="<Course_1_r_0_o_1_h Func=\"COUNT_i_ (Code_b_)\"><Enrol_0_r><Student_0_o Cond=\"Sname = George_b_\">leaf</Student_0_o></Enrol_0_r><Enrol_0_r><Student_0_o_1_h Cond=\"Sname = Green_b_\" Func=\"GROUPBY_i_ (ID)\">leaf</Student_0_o_1_h></Enrol_0_r></Course_1_r_0_o_1_h>";
+
+
+     //patternXML[1] = "<Department_0_o_1_r_i__b_ Cond=\"name = Mong_b_ Li_b_ Lee_b_\"><ProjDept_0_r><Project_0_o><EmpProj_0_r><Employee_0_m_i__b_ Cond=\"Name = Smith_b_\">leaf</Employee_0_m_i__b_></EmpProj_0_r></Project_0_o></ProjDept_0_r><ProjDept_0_r><Project_0_o><EmpProj_0_r><Employee_0_m_i__b_ Cond=\"Name = Brown_b_\">leaf</Employee_0_m_i__b_></EmpProj_0_r></Project_0_o></ProjDept_0_r></Department_0_o_1_r_i__b_>";
+ 
+  </script>
+<body>
+ 
+  <table>
+    <tr>
+      <td><a href="http://localhost:8080/PowerQDemo/homepage.html"><img src="images/logo2.png"  border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td>
+        <form action="powerq" method="post">
+         <input name="searchBox" type="text" size="40" value="COUNT Code George Green">
+         <input name="submit" type="submit" value="Search!" style="height: 25px; width: 100px">
+         <label for="dataset"> DataSet:</label>
+         <select name="dataset" >
+          <option value="acmdl">ACMDL</option>
+          <option value="imdb">IMDB</option>
+          <option value="company" selected>University</option>
+        </select>
+        <br>
+        (<strong><a href="http://localhost:8080/PowerQDemo/intro.html#samplequery">Sample Queries</a></strong>)
+        <input type="hidden" name="page" value="homepage">
+      </form>  
+    </td>
+  </tr>
+</table>
+<br>
+<table>
+  <tr>
+    <td  bgcolor="#D5DDF3"><b> Step 2:</b> Choose interpretation(s) of the query.</td>
+  </tr>
+</table>
+
+<!--<hr/>
+
+<table>
+  <tr>
+    <td><img src="images/database.png" width="128" height="128"></td>
+    <td>
+      <table border="1"   bordercolor="#B6C7D8">
+        <tr>
+          <td>
+            In a query pattern,
+            <ul style="list-style-type:square">
+              <li> An <span class="STYLE1">object node</span> (<img src="images/object.png" width="32" height="18" align="top">) denotes some object.</li><br>
+              <li> A <span class="STYLE1">relationship node</span> (<img src="images/relationship.png" width="32" height="18" align="top">) denotes a relationship.</li><br>
+              <li> A <span class="STYLE1">mixed node</span> (<img src="images/mix.png" width="32" height="18" align="top">) denotes some object and its associated many-to-one relationship.</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>-->
+
+<hr>
+<table cellpadding="5" cellspacing="5" style="table-layout: fixed;  width:100%">
+  <tr>
+    <th bgcolor="#D5DDF3" width="10px" >#</th>
+    <th bgcolor="#D5DDF3" width="60%">Ranked Query Patterns</th>
+    <th bgcolor="#D5DDF3" width="40%">Query Interpretations</th>
+    
+  </tr>
+  <tr><td align="center"><strong>1</strong></td>
+    <td>
+      <div id="divMask0" class="divMaskStyle">
+        <div id="divPattern0" class="divPatternStyle"></div>
+      </div>     
+    </td>
+    <td>Find the <span class="STYLE2">COUNT</span> <span class="STYLE1">Code</span> of the Courses that are taught by the Lecturer with Lname matching <span class="STYLE1">George</span> and are enrolled by the Student with Sname matching <span class="STYLE1">Green</span> <span class="STYLE2">GROUPBY</span> Sid</td>
+    
+  </tr>
+  <tr><td align="center"><strong>2</strong></td>
+    <td>
+      <div id="divMask1" class="divMaskStyle">
+        <div id="divPattern1" class="divPatternStyle"></div>
+      </div>
+    </td>
+    <td>Find the <span class="STYLE2">COUNT</span> <span class="STYLE1">Code</span> of the Courses that are taught by the Lecturer with Lname matching <span class="STYLE1">George</span> and are enrolled by the Student with Sname matching <span class="STYLE1">Green</span></td>
+    
+  </tr>
+  <!--<tr><td align="center"><strong>3.</strong></td>
+    <td>
+      <div id="divMask2" class="divMaskStyle">
+        <div id="divPattern2" class="divPatternStyle"></div>
+      </div>
+    </td>
+    <td>Find the <span class="STYLE1">Departments</span> that conduct the Projects that invlove the <span class="STYLE1">Employee</span> with name matching <span class="STYLE1">Smith</span> and conduct the Projects that involve  the <span class="STYLE1">Employee</span> with name matching <span class="STYLE1">Brown</span></td>
+    <td>
+      <form action="result" method="post">
+        <input type="hidden" name="page" value="result">
+        <input type="hidden" name="pattern" value="1">
+        <input  name="retrieve" type="submit" value="Retrieve" style="height: 25px; width: 70px">
+      </form>
+    </td>
+  </tr>-->
+  
+</table>
+<br><br>
+<table border="0" align="center">
+  <tr>
+    <td><strong>1</strong></td>
+    <td><a href="javascript:navPage(2);" target="_blank">2</a></td>
+    <td><a href="javascript:navPage(3);">3</a></td>
+    <td><a href="javascript:navPage(4);">4</a></td>
+    <td><a href="javascript:navPage(5);">5</a></td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:navPage(2);">Next</a></td>
+  </tr>
+</table>
+ <div id="dialog" title="Warning:" style="display: none;"><p>Retrieving result from this query pattern could freeze the browser. Continue?</p>
+  </div>
+</body>
+</html>

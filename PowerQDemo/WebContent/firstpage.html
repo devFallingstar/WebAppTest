@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>PowerQ</title>
+    <style type="text/css">
+    td,th {
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 14px;
+   }
+
+   img {
+     border: 0;
+   }
+   input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    padding: 0;
+    margin:2;
+    position: relative;
+    top: 2px;
+  }
+  .STYLE1 {
+    color: #CC0033;
+    font-weight: bold;
+  }
+  .STYLE2 {
+    color: #0099CC;
+    font-weight: bold;
+  }
+  .STYLE3 {
+    color: #996600;
+    font-weight: bold;
+  }  
+  </style>
+  <script src="library/jquery-1.9.1.js"></script>
+  <script src="library/jquery-ui.js"></script>
+  <link rel="stylesheet" href="library/jquery-ui.css" />
+  <link rel="stylesheet" type="text/css" href="scripts/Main.css" />
+</head>
+  
+  <script type="text/javascript" language="JavaScript">
+    function clearCheckBoxes()
+    {
+      $('input:checkbox').prop('checked', false);
+    }
+    function selectCheckBoxes()
+    {
+      $('input:checkbox').prop('checked', true);
+    }
+    function checkCheckBoxes(n) {
+      var i;
+      for(i = 1; i <= n; i++)
+      {
+        var name = "keyword" + i;
+        if(!checkCheckBox(name))
+        {
+
+          $("#dialog").html("<p>You didn't choose any of the checkboxes for keyword " + i + " !</p>");
+          $("#dialog").dialog({
+            show: {
+              effect: "blind",
+              duration: 200
+            },
+           
+            resizable: false,
+            height: 200,
+            modal: true,
+            buttons: {
+              'OK': function() {
+                $(this).dialog('close');
+              }
+            }
+          });
+          return false;
+        }
+      }
+      return true;
+    }
+    function checkCheckBox(name)
+    {
+      var x = document.getElementsByName(name);
+      var i;
+      for(i = 0; i < x.length; i++)
+      {
+        if(x[i].checked)
+        {
+          return true;
+        }
+      }
+      return false;
+    }
+  </script> 
+<body>
+
+<table>
+  <tr>
+    <td><a href="http://localhost:8080/PowerQDemo/homepage.html"><img src="images/logo2.png"  border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>
+      <form action="powerq" method="get">
+       <input name="searchBox" type="text" size="50" value="COUNT Code George Green">
+       <input name="submit" type="submit" value="Search!" style="height: 25px; width: 100px">
+       <label for="dataset"> DataSet:</label>
+       <select name="dataset" >
+        <option value="acmdl">ACMDL</option>
+        <option value="imdb">IMDB</option>
+        <option value="company" selected>University</option>
+      </select>
+      <br>
+      (<strong><a href="http://localhost:8080/PowerQDemo/intro.html#samplequery">Sample Queries</a></strong>)
+      <input type="hidden" name="page" value="homepage">
+    </form>  
+  </td>
+</tr>
+</table>
+<br>
+<table>
+<tr>
+  <td  bgcolor="#D5DDF3"><b> Step 1:</b> Choose matches of individual keywords.</td>
+</tr>
+</table>
+<hr/>
+
+<table width="700">
+<tr>
+ <td> 
+  <form action="powerq" method="get" onsubmit="return checkCheckBoxes(5);">
+    <fieldset><legend>Keyword 1:<span class="STYLE1"> Code </span> refers to</legend>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input name="keyword1" type="checkbox" value="0" checked> Some Course Code
+    </fieldset>
+    <br><br>
+    <fieldset><legend>Keyword 2:<span class="STYLE1"> George </span> refers to</legend>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input name="keyword2" type="checkbox" value="0" > Some Student with Sname matching George<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input name="keyword2" type="checkbox" value="0" checked> Some Lecturer with Lname matching George
+    </fieldset>
+    <br><br>
+    <fieldset><legend>Keyword 3:<span class="STYLE1"> Green </span> refers to</legend>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input name="keyword3" type="checkbox" value="0" checked> Some Student with Sname matching Green
+    </fieldset>
+    <br><br>
+    <fieldset><legend>Function 1:<span class="STYLE2"> COUNT </span> refers to</legend>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A COUNT function on the matches of the keyword Code
+    </fieldset>
+    <br><br>
+    <fieldset><legend>Predicate 1:<span class="STYLE3"> OVERLAPS [2015,2016] </span> refers to</legend>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A OVERLAPS predicate on the time period [2015,2016]
+    </fieldset>
+    <br><br>
+    <br>
+    <p align="right">
+      <input  name="continue" type="submit" value="Continue" style="height: 25px; width: 75px">
+      <input type="hidden" name="page" value="keyword">
+      <button type="button" onclick="selectCheckBoxes();" style="height: 25px; width: 75px">SelectAll</button>           
+      <button type="button" onclick="clearCheckBoxes();" style="height: 25px; width: 75px">ClearAll</button>
+      
+    </p>
+  </form>        
+ 
+</td>
+</tr>
+</table>
+<div id="dialog" title="Warning:" style="display: none;"></div>
+
+</body>
+</html>

@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>PowerQ</title>
+  <script src="library/jquery-1.9.1.js"></script>
+  <script src="library/bootstrap.js"></script>
+  <script src="library/joint.js"></script>
+  <script src="library/joint.shapes.erd.js"></script>
+  <script src="library/joint.layout.DirectedGraph.js"></script>  
+  <link rel="stylesheet" href="library/bootstrap.css">
+  <link rel="stylesheet" href="library/joint.css">
+  <link rel="stylesheet" type="text/css" href="scripts/Main.css">
+  <style type="text/css">
+   .mgc-toolbar {
+     margin:0 0 10px 0;
+     height:45px;
+     background-image: url(images/toolbarbg.png);
+     background-repeat: repeat-x;
+   }
+   #divPaper {
+    height: 74vh;
+    width: 100%;
+    overflow: auto;
+    position: relative;
+    background-color: #FFFFFF;
+    border: 2px solid #B6C7D8;
+   }
+   #divTable {
+    height: 74vh;
+    width: 100%;
+    position: relative;
+   }
+   #divElement {
+    height: 48%;
+    width: 100%;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color: #FFFFFF;
+    border: 2px solid #B6C7D8;
+    overflow: auto;
+   }
+   #divLink {
+    height: 48%;
+    width: 100%;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    background-color: #FFFFFF;
+    border: 2px solid #B6C7D8;
+    overflow: auto;
+   }
+  </style>
+</head>
+<body>
+<table width="100%">
+  <tr>
+    <td><a href="http://localhost:8080/PowerQ/homepage.html"><img src="images/logo2.png"  border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+  <tr><td><div class="mgc-toolbar"></div></td></tr>
+</table>
+
+<table style="table-layout: fixed; width:100%">
+  <tr>
+    <th bgcolor="#D5DDF3" width="40%" >Database ER Diagram</th>
+    <th bgcolor="#D5DDF3" width="60%" >Mappings between Diagram and Schema</th>
+  </tr>
+  <tr>
+    <td>
+      <div id="divPaper"></div>
+    </td>
+    <td>
+      <div id="divTable">
+        <div id="divElement">          
+          <span class="table-add-el glyphicon glyphicon-plus"></span>
+          <table id="tblEl" class="table">
+            <tr>
+              <th>#</th>
+              <th>Element</th>
+              <th>Name</th>
+              <th>Relation</th>
+              <th>Attribute</th>
+              <th></th>
+              <th></th>
+            </tr>
+            <tr class="hide">
+              <td class="row-id"></td>
+              <td>
+                <select>
+                  <option value="Entity">Entity</option>
+                  <option value="Relationship">Relationship</option>
+                  <option value="Key">Key</option>
+                  <option value="Normal">Attribute</option>
+                  <option value="Multivalued">Multivalued Attribute</option>
+                </select>
+              </td>              
+              <td contenteditable="true">undefined</td>
+              <td>
+                <select class="select-select">
+                  <option value="N.A." >N.A.</option>
+                  <option value="Enrolment" >Enrolment</option>
+                  <option value="Lecturer">Lecturer</option>
+                  <option value="Department">Department</option>
+                  <option value="Faculty" >Faculty</option>
+                  <option value="Textbook">Textbook</option>
+                  <option value="Teach">Teach</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-update">
+                  <option value="N.A.">N.A.</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-el glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-el glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-el glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">1</td>
+              <td>
+                <select>
+                  <option value="Entity" selected>Entity</option>
+                  <option value="Relationship">Relationship</option>
+                  <option value="Key">Key</option>
+                  <option value="Normal">Attribute</option>
+                  <option value="Multivalued">Multivalued Attribute</option>
+                </select>
+              </td>
+              <td contenteditable="true">Student</td>
+              <td>
+                <select class="select-select">
+                  <option value="N.A." >N.A.</option>
+                  <option value="Enrolment" selected>Enrolment</option>
+                  <option value="Lecturer">Lecturer</option>
+                  <option value="Department">Department</option>
+                  <option value="Faculty" >Faculty</option>
+                  <option value="Textbook">Textbook</option>
+                  <option value="Teach">Teach</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-update">
+                  <option value="N.A.">N.A.</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-el glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-el glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-el glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">2</td>
+              <td>
+                <select>
+                  <option value="Entity">Entity</option>
+                  <option value="Relationship">Relationship</option>
+                  <option value="Key" selected>Key</option>
+                  <option value="Normal">Attribute</option>
+                  <option value="Multivalued">Multivalued Attribute</option>
+                </select>
+              </td>              
+              <td contenteditable="true">Sid</td>
+              <td>
+                <select class="select-select">
+                  <option value="N.A." >N.A.</option>
+                  <option value="Enrolment" selected>Enrolment</option>
+                  <option value="Lecturer">Lecturer</option>
+                  <option value="Department">Department</option>
+                  <option value="Faculty" >Faculty</option>
+                  <option value="Textbook">Textbook</option>
+                  <option value="Teach">Teach</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-update">
+                  <option value="N.A.">N.A.</option>
+                  <option value="Sid" selected>Sid</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-el glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-el glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-el glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">3</td>
+              <td>
+                <select>
+                  <option value="Entity">Entity</option>
+                  <option value="Relationship">Relationship</option>
+                  <option value="Key">Key</option>
+                  <option value="Normal" selected>Attribute</option>
+                  <option value="Multivalued">Multivalued Attribute</option>
+                </select>
+              </td>              
+              <td contenteditable="true">Sname</td>
+              <td>
+                <select class="select-select">
+                  <option value="N.A." >N.A.</option>
+                  <option value="Enrolment" selected>Enrolment</option>
+                  <option value="Lecturer">Lecturer</option>
+                  <option value="Department">Department</option>
+                  <option value="Faculty" >Faculty</option>
+                  <option value="Textbook">Textbook</option>
+                  <option value="Teach">Teach</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-update">
+                  <option value="N.A.">N.A.</option>
+                  <option value="Sname" selected>Sname</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-el glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-el glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-el glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">4</td>
+              <td>
+                <select>
+                  <option value="Entity">Entity</option>
+                  <option value="Relationship">Relationship</option>
+                  <option value="Key">Key</option>
+                  <option value="Normal" selected>Attribute</option>
+                  <option value="Multivalued">Multivalued Attribute</option>
+                </select>
+              </td>              
+              <td contenteditable="true">Age</td>
+              <td>
+                <select class="select-select">
+                  <option value="N.A." >N.A.</option>
+                  <option value="Enrolment" selected>Enrolment</option>
+                  <option value="Lecturer">Lecturer</option>
+                  <option value="Department">Department</option>
+                  <option value="Faculty" >Faculty</option>
+                  <option value="Textbook">Textbook</option>
+                  <option value="Teach">Teach</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-update">
+                  <option value="N.A.">N.A.</option>
+                  <option value="Age" selected>Age</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-el glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-el glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-el glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">5</td>
+              <td>
+                <select>
+                  <option value="Entity">Entity</option>
+                  <option value="Relationship" selected>Relationship</option>
+                  <option value="Key">Key</option>
+                  <option value="Normal">Attribute</option>
+                  <option value="Multivalued">Multivalued Attribute</option>
+                </select>
+              </td>              
+              <td contenteditable="true">Enrol</td>
+              <td>
+                <select class="select-select">
+                  <option value="N.A." >N.A.</option>
+                  <option value="Enrolment" selected>Enrolment</option>
+                  <option value="Lecturer">Lecturer</option>
+                  <option value="Department">Department</option>
+                  <option value="Faculty" >Faculty</option>
+                  <option value="Textbook">Textbook</option>
+                  <option value="Teach">Teach</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-update">
+                  <option value="N.A.">N.A.</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-el glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-el glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-el glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">6</td>
+              <td>
+                <select>
+                  <option value="Entity">Entity</option>
+                  <option value="Relationship">Relationship</option>
+                  <option value="Key">Key</option>
+                  <option value="Normal" selected>Attribute</option>
+                  <option value="Multivalued">Multivalued Attribute</option>
+                </select>
+              </td>              
+              <td contenteditable="true">Grade</td>
+              <td>
+                <select class="select-select">
+                  <option value="N.A." >N.A.</option>
+                  <option value="Enrolment" selected>Enrolment</option>
+                  <option value="Lecturer">Lecturer</option>
+                  <option value="Department">Department</option>
+                  <option value="Faculty" >Faculty</option>
+                  <option value="Textbook">Textbook</option>
+                  <option value="Teach">Teach</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-update">
+                  <option value="N.A.">N.A.</option>
+                  <option value="Grade" selected>Grade</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-el glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-el glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-el glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">7</td>
+              <td>
+                <select>
+                  <option value="Entity" selected>Entity</option>
+                  <option value="Relationship">Relationship</option>
+                  <option value="Key">Key</option>
+                  <option value="Normal">Attribute</option>
+                  <option value="Multivalued">Multivalued Attribute</option>
+                </select>
+              </td>              
+              <td contenteditable="true">Course</td>
+              <td>
+                <select class="select-select">
+                  <option value="N.A." >N.A.</option>
+                  <option value="Enrolment" selected>Enrolment</option>
+                  <option value="Lecturer">Lecturer</option>
+                  <option value="Department">Department</option>
+                  <option value="Faculty" >Faculty</option>
+                  <option value="Textbook">Textbook</option>
+                  <option value="Teach">Teach</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-update">
+                  <option value="N.A.">N.A.</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-el glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-el glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-el glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">8</td>
+              <td>
+                <select>
+                  <option value="Entity">Entity</option>
+                  <option value="Relationship">Relationship</option>
+                  <option value="Key" selected>Key</option>
+                  <option value="Normal">Attribute</option>
+                  <option value="Multivalued">Multivalued Attribute</option>
+                </select>
+              </td>              
+              <td contenteditable="true">Code</td>
+              <td>
+                <select class="select-select">
+                  <option value="N.A." >N.A.</option>
+                  <option value="Enrolment" selected>Enrolment</option>
+                  <option value="Lecturer">Lecturer</option>
+                  <option value="Department">Department</option>
+                  <option value="Faculty" >Faculty</option>
+                  <option value="Textbook">Textbook</option>
+                  <option value="Teach">Teach</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-update">
+                  <option value="N.A.">N.A.</option>
+                  <option value="Code" selected>Code</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-el glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-el glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-el glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">9</td>
+              <td>
+                <select>
+                  <option value="Entity">Entity</option>
+                  <option value="Relationship">Relationship</option>
+                  <option value="Key">Key</option>
+                  <option value="Normal" selected>Attribute</option>
+                  <option value="Multivalued">Multivalued Attribute</option>
+                </select>
+              </td>              
+              <td contenteditable="true">Title</td>
+              <td>
+                <select class="select-select">
+                  <option value="N.A." >N.A.</option>
+                  <option value="Enrolment" selected>Enrolment</option>
+                  <option value="Lecturer">Lecturer</option>
+                  <option value="Department">Department</option>
+                  <option value="Faculty" >Faculty</option>
+                  <option value="Textbook">Textbook</option>
+                  <option value="Teach">Teach</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-update">
+                  <option value="N.A.">N.A.</option>
+                  <option value="Title" selected>Title</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-el glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-el glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-el glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">10</td>
+              <td>
+                <select>
+                  <option value="Entity">Entity</option>
+                  <option value="Relationship">Relationship</option>
+                  <option value="Key">Key</option>
+                  <option value="Normal" selected>Attribute</option>
+                  <option value="Multivalued">Multivalued Attribute</option>
+                </select>
+              </td>              
+              <td contenteditable="true">Credit</td>
+              <td>
+                <select class="select-select">
+                  <option value="N.A." >N.A.</option>
+                  <option value="Enrolment" selected>Enrolment</option>
+                  <option value="Lecturer">Lecturer</option>
+                  <option value="Department">Department</option>
+                  <option value="Faculty" >Faculty</option>
+                  <option value="Textbook">Textbook</option>
+                  <option value="Teach">Teach</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-update">
+                  <option value="N.A.">N.A.</option>
+                  <option value="Credit" selected>Credit</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-el glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-el glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-el glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        
+        <div id="divLink">
+          <span class="table-add-lk glyphicon glyphicon-plus"></span>
+          <table id="tblLk" class="table">
+            <tr>
+              <th>#</th>
+              <th>Element1</th>
+              <th>Element2</th>
+              <th>Cardinality</th>
+              <th></th>
+              <th></th>
+            </tr>
+            <tr class="hide">
+              <td class="row-id"></td>
+              <td>
+                <select class="select-ref"></select>
+              </td>
+              <td>
+                <select class="select-ref"></select>
+              </td>
+              <td>
+                <select>
+                  <option value="N.A.">N.A.</option>
+                  <option value="1">1</option>
+                  <option value="N">N</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-lk glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-lk glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-lk glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">1</td>
+              <td>
+                <select class="select-ref">
+                  <option value="0" selected>1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4">5</option>
+                  <option value="5">6</option>
+                  <option value="6">7</option>
+                  <option value="7">8</option>
+                  <option value="8">9</option>
+                  <option value="9">10</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-ref">
+                  <option value="0">1</option>
+                  <option value="1" selected>2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4">5</option>
+                  <option value="5">6</option>
+                  <option value="6">7</option>
+                  <option value="7">8</option>
+                  <option value="8">9</option>
+                  <option value="9">10</option>                  
+                </select>
+              </td>
+              <td>
+                <select>
+                  <option value="N.A." selected>N.A.</option>
+                  <option value="1">1</option>
+                  <option value="N">N</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-lk glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-lk glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-lk glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">2</td>
+              <td>
+                <select class="select-ref">
+                  <option value="0" selected>1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4">5</option>
+                  <option value="5">6</option>
+                  <option value="6">7</option>
+                  <option value="7">8</option>
+                  <option value="8">9</option>
+                  <option value="9">10</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-ref">
+                  <option value="0">1</option>
+                  <option value="1">2</option>
+                  <option value="2" selected>3</option>
+                  <option value="3">4</option>
+                  <option value="4">5</option>
+                  <option value="5">6</option>
+                  <option value="6">7</option>
+                  <option value="7">8</option>
+                  <option value="8">9</option>
+                  <option value="9">10</option>                  
+                </select>
+              </td>
+              <td>
+                <select>
+                  <option value="N.A." selected>N.A.</option>
+                  <option value="1">1</option>
+                  <option value="N">N</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-lk glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-lk glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-lk glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">3</td>
+              <td>
+                <select class="select-ref">
+                  <option value="0" selected>1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4">5</option>
+                  <option value="5">6</option>
+                  <option value="6">7</option>
+                  <option value="7">8</option>
+                  <option value="8">9</option>
+                  <option value="9">10</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-ref">
+                  <option value="0">1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3" selected>4</option>
+                  <option value="4">5</option>
+                  <option value="5">6</option>
+                  <option value="6">7</option>
+                  <option value="7">8</option>
+                  <option value="8">9</option>
+                  <option value="9">10</option>                  
+                </select>
+              </td>
+              <td>
+                <select>
+                  <option value="N.A." selected>N.A.</option>
+                  <option value="1">1</option>
+                  <option value="N">N</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-lk glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-lk glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-lk glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">4</td>
+              <td>
+                <select class="select-ref">
+                  <option value="0" selected>1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4">5</option>
+                  <option value="5">6</option>
+                  <option value="6">7</option>
+                  <option value="7">8</option>
+                  <option value="8">9</option>
+                  <option value="9">10</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-ref">
+                  <option value="0">1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4" selected>5</option>
+                  <option value="5">6</option>
+                  <option value="6">7</option>
+                  <option value="7">8</option>
+                  <option value="8">9</option>
+                  <option value="9">10</option>                  
+                </select>
+              </td>
+              <td>
+                <select>
+                  <option value="N.A.">N.A.</option>
+                  <option value="1">1</option>
+                  <option value="N" selected>N</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-lk glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-lk glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-lk glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">5</td>
+              <td>
+                <select class="select-ref">
+                  <option value="0">1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4" selected>5</option>
+                  <option value="5">6</option>
+                  <option value="6">7</option>
+                  <option value="7">8</option>
+                  <option value="8">9</option>
+                  <option value="9">10</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-ref">
+                  <option value="0">1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4">5</option>
+                  <option value="5" selected>6</option>
+                  <option value="6">7</option>
+                  <option value="7">8</option>
+                  <option value="8">9</option>
+                  <option value="9">10</option>                  
+                </select>
+              </td>
+              <td>
+                <select>
+                  <option value="N.A." selected>N.A.</option>
+                  <option value="1">1</option>
+                  <option value="N">N</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-lk glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-lk glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-lk glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">6</td>
+              <td>
+                <select class="select-ref">
+                  <option value="0">1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4" selected>5</option>
+                  <option value="5">6</option>
+                  <option value="6">7</option>
+                  <option value="7">8</option>
+                  <option value="8">9</option>
+                  <option value="9">10</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-ref">
+                  <option value="0">1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4">5</option>
+                  <option value="5">6</option>
+                  <option value="6" selected>7</option>
+                  <option value="7">8</option>
+                  <option value="8">9</option>
+                  <option value="9">10</option>                  
+                </select>
+              </td>
+              <td>
+                <select>
+                  <option value="N.A.">N.A.</option>
+                  <option value="1">1</option>
+                  <option value="N" selected>N</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-lk glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-lk glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-lk glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">7</td>
+              <td>
+                <select class="select-ref">
+                  <option value="0">1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4">5</option>
+                  <option value="5">6</option>
+                  <option value="6" selected>7</option>
+                  <option value="7">8</option>
+                  <option value="8">9</option>
+                  <option value="9">10</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-ref">
+                  <option value="0">1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4">5</option>
+                  <option value="5">6</option>
+                  <option value="6">7</option>
+                  <option value="7" selected>8</option>
+                  <option value="8">9</option>
+                  <option value="9">10</option>                  
+                </select>
+              </td>
+              <td>
+                <select>
+                  <option value="N.A." selected>N.A.</option>
+                  <option value="1">1</option>
+                  <option value="N">N</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-lk glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-lk glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-lk glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">8</td>
+              <td>
+                <select class="select-ref">
+                  <option value="0">1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4">5</option>
+                  <option value="5">6</option>
+                  <option value="6" selected>7</option>
+                  <option value="7">8</option>
+                  <option value="8">9</option>
+                  <option value="9">10</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-ref">
+                  <option value="0">1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4">5</option>
+                  <option value="5">6</option>
+                  <option value="6">7</option>
+                  <option value="7">8</option>
+                  <option value="8" selected>9</option>
+                  <option value="9">10</option>                  
+                </select>
+              </td>
+              <td>
+                <select>
+                  <option value="N.A." selected>N.A.</option>
+                  <option value="1">1</option>
+                  <option value="N">N</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-lk glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-lk glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-lk glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="row-id">9</td>
+              <td>
+                <select class="select-ref">
+                  <option value="0">1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4">5</option>
+                  <option value="5">6</option>
+                  <option value="6" selected>7</option>
+                  <option value="7">8</option>
+                  <option value="8">9</option>
+                  <option value="9">10</option>
+                </select>
+              </td>
+              <td>
+                <select class="select-ref">
+                  <option value="0">1</option>
+                  <option value="1">2</option>
+                  <option value="2">3</option>
+                  <option value="3">4</option>
+                  <option value="4">5</option>
+                  <option value="5">6</option>
+                  <option value="6">7</option>
+                  <option value="7">8</option>
+                  <option value="8">9</option>
+                  <option value="9" selected>10</option>                  
+                </select>
+              </td>
+              <td>
+                <select>
+                  <option value="N.A." selected>N.A.</option>
+                  <option value="1">1</option>
+                  <option value="N">N</option>
+                </select>
+              </td>
+              <td>
+                <span class="table-remove-lk glyphicon glyphicon-remove"></span>
+              </td>
+              <td>
+                <span class="table-up-lk glyphicon glyphicon-arrow-up"></span>
+                <span class="table-down-lk glyphicon glyphicon-arrow-down"></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="right"><br>
+      <form action="database" method="post">
+        <button id="btnDraw" type="button" class="btn btn-primary" >Draw Diagram</button>
+        <input type="hidden" name="page" value="graph">
+        <input type="hidden" name="element" value="">
+        <input type="hidden" name="link" value="">
+        <input name="Save" type="submit" disabled value="Save" class="btn btn-primary">
+        <input name="Restore" type="submit" disabled value="Restore" class="btn btn-primary">
+      </form>
+    </td>
+  </tr>
+</table>
+<script>
+  var db = [
+  {'Table':'Enrolment','Column':['Sid','Code','Sname','Age','Title','Credit','Grade']},
+  {'Table':'Lecturer','Column':['Lid','Lname','Did','Fid']},
+  {'Table':'Department','Column':['Did','Dname']},
+  {'Table':'Faculty','Column':['Fid','Fname']},
+  {'Table':'Textbook','Column':['Bid','Tname','Price']},
+  {'Table':'Teach','Column':['Code','Lid','Bid']},
+  ];
+</script>
+<script src="scripts/DatabaseModel.js"></script>
+</body>
+</html>

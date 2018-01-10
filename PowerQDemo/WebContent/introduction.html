@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>PowerQ+</title>
+  <style type="text/css">
+  td,th {
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 14px;
+   margin: 20px 40px 10px 40px;
+ }
+ .mgc-toolbar {
+  margin:0 0 10px 0;
+  height:45px;
+  background-image: url(images/toolbarbg.png);
+  background-repeat: repeat-x;
+}
+.STYLE6{
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333333;
+}
+
+</style>
+<link rel="stylesheet" type="text/css" href="scripts/Main.css" />
+</head> 
+<body>
+
+  <a id="top"></a>
+  <table width="100%">
+    <tr>
+      <td><a href="http://powerq.comp.nus.edu.sg/homepage.html"><img src="images/logo2.png"  border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+      <tr><td><div class="mgc-toolbar"></div></td></tr>
+    </table>
+
+    <table width="100%" border="0">
+      <tr>
+        <td nowrap width="128" valign="top"><img src="images/information.jpg" width="128" height="128"></td>
+        <td>
+          <table width="100%" border="1" cellspacing="0" bordercolor="#B6C7D8">
+            <tr>
+              <td valign="middle">
+                <p align="left"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/bullet.png" width="32" height="32" align="absmiddle">&nbsp;&nbsp;&nbsp;<a href="#question1" style="text-decoration: none;">1. What is PowerQ+?</a></strong></p>
+                <p align="left"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/bullet.png" width="32" height="32" align="absmiddle">&nbsp;&nbsp;&nbsp;<a href="#question2" style="text-decoration: none;">2. How to use the system?</a></strong></p>
+                <p align="left"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/bullet.png" width="32" height="32" align="absmiddle">&nbsp;&nbsp;&nbsp;<a href="#question3" style="text-decoration: none;">3. What can I search in the system?</a></strong></p>
+                <p align="left"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/bullet.png" width="32" height="32" align="absmiddle">&nbsp;&nbsp;&nbsp;<a href="#question4" style="text-decoration: none;">4. Publications</a></strong></p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+    <br><br><br>
+    <a id="question1"></a>
+    <table width="100%" border="0">
+      <tr>
+        <td nowrap width="128" rowspan="2" align="right" valign="top"><img src="images/bookmark.png" width="82" height="82" /></td>
+        <td>
+          <p><strong>1. What is PowerQ+?</strong></p>
+          <hr>
+          <p>PowerQ+  is an interactive system prototype for keyword search over relational databases.  It  extends the expressive power of keyword queries by including metadata keywords, aggregate functions, GROUPBY and temporal predicates.</p>
+          <p>The features of PowerQ+ are listed as follows:
+            <ul>
+              <li style="margin-bottom:15px;"><b>Extended keyword query language</b>. A keyword query is a sequence of keywords where each keyword is either
+                <ul><li style="margin-top:10px;margin-bottom:10px;"> a data-content keyword that matches a tupple value; or</li>
+                  <li style="margin-bottom:10px;"> a metadata keyword that matches a relation name or an attribute name; or</li>
+                  <li style="margin-bottom:10px;">an aggregate function   <i>MIN</i>, <i>MAX</i>, <i>AVG</i>, <i>SUM</i>, or <i>COUNT</i>  or <i>GROUPBY</i>; or</li>
+                  <li style="margin-bottom:10px;">a temporal preidicate  <i>EQUAL</i>, <i>DURING</i>, <i>CONTAINS</i>, <i>OVERLAPS</i>, <i>BEFORE</i>, or <i>AFTER</i> followed by a time period [s, e].</li>
+                </ul></li>
+
+              <li style="margin-bottom:15px;"><b>ORM schema graph</b>. PowerQ+ utilizes an ORM schema graph to capture the Object-Relationship-Attribute (ORA) semantics in the database. This allows PowerQ+ to distinguish objects with the same attribute value as well as detect duplicate objects and relationships in order to compute aggregate functions and apply temporal predicates correctly.</li>
+
+              <li style="margin-bottom:15px;"><b>Annotated query pattern</b>. This is a minimal connected graph that represents and disambiguates the possible search intention of the query. The pattern is annotated with conditions, aggregate functions, GROUPBY and temporal preidcates, and is described by human natural language to facilitate user understanding.</li>
+
+              <li style="margin-bottom:15px;"><b>User interaction</b>. PowerQ+ actively involves the user in the query evaluation process. This gives the user insight into how query is interpreted by the system and results that can be expected.</li>
+            </ul>
+          </p>
+        </td>
+      </tr>
+      <tr><td nowrap align="right">back<a href="#top"><img src="images/home.jpg" width="64" height="64" border="0" align="absbottom" /></a></td></tr>
+    </table>
+
+    <br><br><br>
+    <a id="question2"></a>
+    <table width="100%" border="0">
+      <tr>
+        <td nowrap width="128" rowspan="2" align="right" valign="top"><img src="images/bookmark.png" width="82" height="82" /></td>
+        <td>
+          <p><strong>2. How to use the system?</strong></p>
+          <hr><br>
+          <iframe src='https://onedrive.live.com/embed?cid=8B43D83AD84AF39E&resid=8B43D83AD84AF39E%21105&authkey=AAHz_-Zm6X83fm8&em=2&wdAr=1.7777777777777777' width='1186px' height='691px' frameborder='0'>This is an embedded <a target='_blank' href='https://office.com'>Microsoft Office</a> presentation, powered by <a target='_blank' href='https://office.com/webapps'>Office Online</a>.</iframe>
+        </td>
+      </tr>
+      <tr><td nowrap align="right">back<a href="#top"><img src="images/home.jpg" width="64" height="64" border="0"  align="absbottom" /></a></td></tr>
+    </table>
+
+    <br><br><br>
+    <a id="question3"></a>
+    <table width="100%" border="0">
+      <tr>
+        <td nowrap width="128" rowspan="2" align="right" valign="top"><img src="images/bookmark.png" width="82" height="82" /></td>
+        <td>
+          <p><strong>3. What can I search in the system?</strong></p>
+          <hr>
+          <p>Three datasets are used for demostration:  ACM Digital Library (ACMDL), Internet Movie Database (IMDB) and Employee Sample Database (Employee).</p>          
+          <p>The ACMDL dataset contains information on a subset of conference papers between 1900 and 2011, and their authors, proceedings, editors, publishers, etc. The database schema along with the schema graph and the ORM  schema graph are shown as below:</p>
+          <table width="1440">
+            <tr>
+              <td nowrap>
+                <p>&nbsp;&nbsp;&nbsp;<b>paper</b>(<u>paperid</u>, title, keywords, pagefrom, pageto, date, doinumber, url, procid)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>author</b>(<u>authorid</u>, name)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>author_aff_history</b>(<u>authorid, affiliation</u>)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>editor</b>(<u>editorid</u>, name)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>proceeding</b>(<u>procid</u>, acronym, title, date, pages,   city, country,  series, isbn13, publisherid)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>publisher</b>(<u>publisherid</u>, code, name, address, city, state, country)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>write</b>(<u>authorid, paperid</u>)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>edit</b>(<u>editorid, procid</u>)</p>
+              </td>
+              <td ><img src="images/acmdl.png" width="425"  /></td>
+              <td ><img src="images/orm_acmdl.png" width="275"  /></td>
+            </tr>
+          </table>
+          <br>
+          <p>The IMDB dataset contains information on  Top 250 highest-rated  movies and their cast, directors, companies, etc. The database schema along with the schema graph and the ORM  schema graph are shown as below:</p>
+          <table width="1440">
+            <tr>
+              <td nowrap>
+                <p>&nbsp;&nbsp;&nbsp;<b>movie</b>(<u>movieid</u>, title, year, votes, rating, mpaa)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>movie_genre</b>(<u>movieid, genre</u>)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>movie_language</b>(<u>movieid, language</u>)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>cast</b>(<u>castid</u>, name, birthdate, birthplace, biography, remark)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>director</b>(<u>directorid</u>, name, birthdate, birthplace, biography, remark)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>writer</b>(<u>writerid</u>, name, birthdate, birthplace, biography, remark)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>company</b>(<u>companyid</u>, name, country)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>play</b>(<u>movieid, castid</u>)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>direct</b>(<u>movieid, directorid</u>)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>write</b>(<u>movieid, writerid</u>)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>produce</b>(<u>movieid, companyid</u>)</p>
+              </td>
+              <td ><img src="images/imdb.png" width="425" /></td>
+              <td ><img src="images/orm_imdb.png" width="275" /></td>
+            </tr>
+          </table>
+          <br>
+          <p>The Employee dataset contains information on  employees who work for and manage departments in a company, and keeps track of the changes of the employees (their salaries and job titles, departments worked for). The database schema along with the schema graph and the ORM  schema graph are shown as below:</p>
+          <table width="1440">
+            <tr>
+              <td nowrap>
+                <p>&nbsp;&nbsp;&nbsp;<b>department</b>(<u>deptno</u>, name)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>employee</b>(<u>empno</u>, birthdate, name, gender, hiredate)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>emptitle</b>(<u>empno, start</u>, title, end)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>empsalary</b>(<u>empno, start</u>, salary, end)</p>
+                <p>&nbsp;&nbsp;&nbsp;<b>workfor</b>(<u>empno, deptno, start</u>, end)</p>
+              </td>
+              <td ><img src="images/employee.png" width="325" /></td>
+              <td ><img src="images/orm_employee.png" width="275" /></td>
+            </tr>
+          </table>
+          <br>
+          <a id="samplequery"></a>
+          <p><img src="images/bullet.png" width="32" height="32" align="absmiddle">For those who want to save the effort issuing a query, we list some sample queries for three databases as follows:</p>
+          <p align="center"><b>ACMDL database</b></p>
+          <table cellpadding="10" align="center">
+            <tr><td>
+              <table border="1" bordercolor="#B6C7D8" cellspacing="0" cellpadding="10" align="center">
+                <tr>
+                  <th>#</th>
+                  <th>Simple Query</th>
+                  <th>Major Search Intention (by user survey)</th>
+                </tr>
+                <tr>
+                  <td>Q1</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=publisher+name&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>publisher name</b></a></td>
+                  <td>Find the names of all publishers.</td>
+                </tr>
+                <tr>
+                  <td>Q2</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=&quot;Jeffrey+D.+Ullman&quot;+affiliation&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>"Jeffrey D. Ullman" affiliation</b></a></td>
+                  <td>Find the affiliations of Jeffrey D. Ullman.</td>
+                </tr>
+                <tr>
+                  <td>Q3</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=Jagadish+paper+title+url&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>Jagadish paper title url</b></a></td>
+                  <td>Find the titles and urls of papers written by Jagadish.</td>
+                </tr>
+                <tr>
+                  <td>Q4</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=Divesh+paper+SIGMOD+after+[2008]&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>Divesh paper SIGMOD after [2008]</b></a></td>
+                  <td>Find the papers written by Divesh and published in SIGMOD proceedings after 2008.</td>
+                </tr>
+                <tr>
+                  <td>Q5</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=Jeffrey+graph&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>author Jeffrey graph</b></a></td>
+                  <td>Find papers on graph written by the author Jeffrey.</td>
+                </tr>
+                <tr>
+                  <td>Q6</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=proceeding+Singapore&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>proceeding Singapore</b></a></td>
+                  <td>Find the proceedings of conferences held in Singapore.</td>
+                </tr>
+                <tr>
+                  <td>Q7</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=editor+&quot;SIGIR+08&quot;&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>editor "SIGIR 08"</b></a></td>
+                  <td>Find the editors of proceeding SIGIR 08.</td>
+                </tr>
+                <tr>
+                  <td>Q8</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=paper+&quot;Tok+Wang+Ling&quot;+&quot;Mong+Li+Lee&quot;&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>paper "Tok Wang Ling" "Mong Li Lee"</b></a></td>
+                  <td>Find the papers written by Tok Wang Ling and the author Mong Li Lee.</td>
+                </tr>
+                <tr>
+                  <td>Q9</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=&quot;EDBT+09&quot;+author&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>"EDBT 09" author</b></a></td>
+                  <td>Find the authors who have written a paper published in proceeding EDBT 09.</td>
+                </tr>
+                <tr>
+                  <td>Q10</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=proceeding+title+editor+Smith+DURING+[2005,2010]&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>proceeding title editor Smith during [2005,2010]</b></a></td>
+                  <td>Find the title of proceedings edited by ‘Smith’ in year 2005 to 2010.</td>
+                </tr>
+              </table>
+            </td></tr>
+            <tr><td>
+              <table border="1" bordercolor="#B6C7D8" cellspacing="0" cellpadding="10" align="center">
+                <tr>
+                  <th>#</th>
+                  <th>Aggregate Query</th>
+                  <th>Major Search Intention (by user survey)</th>
+                  <th>Verify Query</th>
+                </tr>
+                <tr>
+                  <td>AQ1</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=count+publisher+groupby+country&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>count publisher groupby country</b></a></td>
+                  <td>Find the number of publishers in each country.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=publisher+country&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>publisher country</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ2</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=&quot;Jim+Gray&quot;+count+affiliation&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>"Jim Gray" count affiliation</b></a></td>
+                  <td>Find the number of affiliations of Jim Gray.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=&quot;Jim+Gray&quot;+affiliation&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>"Jim Gray" affiliation</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ3</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=&quot;David+Maier&quot;+count+paper+groupby+proceeding&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>"David Maier" count paper groupby proceeding</b></a></td>
+                  <td>Find the number of papers written by David Maier in each proceeding.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=&quot;David+Maier&quot;+paper+proceeding+&quot;SIGMOD+95&quot;&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>"David Maier" paper proceeding "SIGMOD 95"</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ4</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=Jagadish+SIGMOD+max+date&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>Jagadish SIGMOD max date</b></a></td>
+                  <td>Find the latest date when Jagadish wrote a paper in SIGMOD proceedings.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=Jagadish+SIGMOD+date&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>Jagadish SIGMOD date</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ5</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=Jeffrey+count+paper+graph&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>Jeffrey count paper graph</b></a></td>
+                  <td>Find the number of papers on graph written by the author Jeffrey.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=Jeffrey+paper+graph&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>Jeffrey paper graph</b></a><b>;</b>&nbsp;&nbsp;<a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=&quot;Jeffrey+D.+Ullman&quot;+paper+graph&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>"Jeffrey D. Ullman" paper graph</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ6</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=count+paper+EDBT+before+[2009]&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>count paper EDBT before [2009]</b></a></td>
+                  <td>Find the number of papers in EDBT proceedings before 2009.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=paper+EDBT+before+[2009]&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>paper EDBT before [2009]</b></a><b>;</b>&nbsp;&nbsp;<a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=paper+&quot;EDBT+08&quot;&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>paper "EDBT 08"</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ7</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=avg+count+editor+groupby+proceeding+CIKM&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>avg count editor groupby proceeding CIKM</b></a></td>
+                  <td>Find the average number of editors for CIKM proceedings.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=count+editor+groupby+proceeding+CIKM&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>count editor groupby proceeding CIKM</b></a><b>;</b>&nbsp;&nbsp;<a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=editor+proceeding+&quot;CIKM+08&quot;&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>editor proceeding "CIKM 08"</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ8</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=min+date+&quot;Kian+Lee+Tan&quot;+&quot;Mong+Li+Lee&quot;&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>min date "Kian Lee Tan" "Mong Li Lee"</b></a></td>
+                  <td>Find the earliest date when Kian Lee Tan and Mong Li Lee co-authored a paper.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=date+&quot;Kian+Lee+Tan&quot;+&quot;Mong+Li+Lee&quot;&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>date "Kian Lee Tan" "Mong Li Lee"</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ9</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=max+count+paper+groupby+author&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>max count paper groupby author</b></a></td>
+                  <td>Find the maximum number of papers that an author has written.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=count+paper+groupby+author&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>count paper groupby author</b></a><b>;</b>&nbsp;&nbsp;<a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=paper+author+&quot;Jason+Cong&quot;&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>paper author "Jason Cong"</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ10</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=count+paper+&quot;keyword+search&quot;+after+[2010]&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>count paper "keyword search" after [2010]</b></a></td>
+                  <td>Find the number of papers on keyword search after 2010.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=paper+&quot;keyword+search&quot;+after+[2010]&amp;dataset=acmdl&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>paper "keyword search" after [2010]</b></a></td>
+                </tr>
+              </table>
+            </td></tr>
+          </table>
+          <br><br>
+          <p align="center"><b>IMDB database</b></p>
+          <table cellpadding="10" align="center">
+            <tr><td>
+              <table border="1" bordercolor="#B6C7D8" cellspacing="0" cellpadding="10" align="center">
+                <tr>
+                  <th>#</th>
+                  <th>Simple Query</th>
+                  <th>Major Search Intention (by user survey)</th>
+                </tr>
+                <tr>
+                  <td>Q1</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=movie+action&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>movie action</b></a></td>
+                  <td>Find all the action movies.</td>
+                </tr>
+                <tr>
+                  <td>Q2</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=Inception+genre&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>Inception genre</b></a></td>
+                  <td>Find genres of the movie Inception.</td>
+                </tr>
+                <tr>
+                  <td>Q3</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=&quot;Forrest+Gump&quot;+director+name&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>"Forrest Gump" director name</b></a></td>
+                  <td>Find the name of the director who directs the movie Forrest Gump.</td>
+                </tr>
+                <tr>
+                  <td>Q4</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=Disney+movie&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>Disney movie</b></a></td>
+                  <td>Find the movies produced by the company Disney.</td>
+                </tr>
+                <tr>
+                  <td>Q5</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=writer+&quot;Woody+Allen&quot;+movie&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>writer "Woody Allen" movie</b></a></td>
+                  <td>Find the movies written by the writer Woody Allen.</td>
+                </tr>
+                <tr>
+                  <td>Q6</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=Avengers+cast+name+birthdate&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>Avengers cast name birthdate</b></a></td>
+                  <td>Find the names and birthdates  of casts of the movie Avengers.</td>
+                </tr>
+                <tr>
+                  <td>Q7</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=movie+Godfather+votes+rating&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>movie Godfather votes rating</b></a></td>
+                  <td>Find the votes and ratings of the movie Godfather.</td>
+                </tr>
+                <tr>
+                  <td>Q8</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=movie+title+&quot;Morgan+Freeman&quot;+&quot;Michael+Caine&quot;&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>movie title "Morgan Freeman" "Michael Caine"</b></a></td>
+                  <td>Find title of the movies played by Morgan Freeman and the actor Michael Caine.</td>
+                </tr>
+              </table>
+            </td></tr>
+            <tr><td>
+              <table border="1" bordercolor="#B6C7D8" cellspacing="0" cellpadding="10" align="center">
+                <tr>
+                  <th>#</th>
+                  <th>Aggregate Query</th>
+                  <th>Major Search Intention (by user survey)</th>
+                  <th>Verify Query</th>
+                </tr>
+                <tr>
+                  <td>AQ1</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=count+movie+groupby+genre&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>count movie groupby genre</b></a></td>
+                  <td>Find the number of movies in each genre.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=movie+genre+Comedy&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b> movie  genre Comedy</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ2</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=&quot;Steven+Spielberg&quot;+count+movie+groupby+cast&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>"Steven Spielberg" count movie groupby cast</b></a></td>
+                  <td>Find the number of movies directed by "Steven Spielberg" for each cast.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=&quot;Steven+Spielberg&quot;+movie+cast+Denholm&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>"Steven Spielberg" movie cast Denholm</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ3</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=Intouchables+count+cast&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>Intouchables count cast</b></a></td>
+                  <td>Find the number of casts in the movie Intouchables.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=Intouchables+cast&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>Intouchables cast</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ4</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=movie+max+rating+French&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>movie max rating French</b></a></td>
+                  <td>Find the highest rating of a French movie.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=movie+rating+French&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>movie rating French</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ5</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=director+&quot;Christopher+Nolan&quot;+count+movie&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>director "Christopher Nolan" count movie</b></a></td>
+                  <td>Find the number of movies directed by the director Christopher Nolan.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=director+&quot;Christopher+Nolan&quot;+movie&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>director "Christopher Nolan" movie</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ6</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=movie+avg+rating+groupby+year&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>movie avg rating groupby year</b></a></td>
+                  <td>Find the average movie rating in each year.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=movie+rating+year&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>movie rating year</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ7</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=min+year+&quot;Tom+Hanks&quot;&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>min year "Tom Hanks"</b></a></td>
+                  <td>Find the earliest year in which Tom Hanks plays a movie.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=year+&quot;Tom+Hanks&quot;&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>year "Tom Hanks"</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ8</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=avg+count+movie+groupby+company&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>avg count movie groupby company</b></a></td>
+                  <td>Find the average number of movies in each company.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=count+movie+groupby+company&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>count movie groupby company</b></a><b>;</b>&nbsp;&nbsp;<a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=movie+company+&quot;Warner+Bros.+Pictures&quot;&amp;dataset=imdb&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>movie company "Warner Bros. Pictures"</b></a></td>
+                </tr>
+              </table>
+            </td></tr>
+          </table>
+          <p align="center"><b>Employee database</b></p>
+          <table cellpadding="10" align="center">
+            <tr><td>
+              <table border="1" bordercolor="#B6C7D8" cellspacing="0" cellpadding="10" align="center">
+                <tr>
+                  <th>#</th>
+                  <th>Simple Query</th>
+                  <th>Major Search Intention (by user survey)</th>
+                </tr>
+                <tr>
+                  <td>Q1</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=employee+&quot;Chirstian+Danley&quot;+salary&amp;dataset=employee&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>employee "Chirstian Danley" salary</b></a></td>
+                  <td>Find the salary of the employee "Chirstian Danley".</td>
+                </tr>
+                <tr>
+                  <td>Q2</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=employee+Jackson+hiredate&amp;dataset=employee&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>employee Jackson hiredate</b></a></td>
+                  <td>Find the hiredate of the employee Jackson.</td>
+                </tr>
+                <tr>
+                  <td>Q3</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=department+employee+Mark+Leon&amp;dataset=employee&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>department employee Mark Leon</b></a></td>
+                  <td>Find the departments in which both employees Mark and Leon work.</td>
+                </tr>
+                <tr>
+                  <td>Q4</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=employee+department+finance+after+[2000-01-31]&amp;dataset=employee&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>employee department finance after [2000-01-31]</b></a></td>
+                  <td>Find the employees that work for the finance department after 2000-01-31.</td>
+                </tr>
+                <tr>
+                  <td>Q5</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=employee+female+department+marketing+during+[1990,2000]&amp;dataset=employee&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>employee female department marketing during [1990,2000]</b></a></td>
+                  <td>Find the female employees in department ‘marketing’ during 1990 to 2000.</td>
+                </tr>    
+                <tr>
+                  <td>Q6</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=employee+manager+before+leader&amp;dataset=employee&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>employee manager before leader</b></a></td>
+                  <td>Find the employees that have the manager title  before the leader title.</td>
+                </tr> 
+                <tr>
+                  <td>Q7</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=department+&quot;Chirstian+Danley&quot;+before+Jackson&amp;dataset=employee&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>department "Chirstian Danley" before Jackson</b></a></td>
+                  <td>Find the department "Chirstian Danley" worked in before "Jackson" working in.</td>
+                </tr>
+                <tr>
+                  <td>Q8</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=employee+&quot;human+resources&quot;+after+marketing&amp;dataset=employee&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>employee "human resources" after marketing</b></a></td>
+                  <td>Find the name of employees who worked in ‘Human Resources’ after working in ‘Marketing’.</td>
+                </tr>               
+              </table>
+            </td></tr>
+            <tr><td>
+              <table border="1" bordercolor="#B6C7D8" cellspacing="0" cellpadding="10" align="center">
+                <tr>
+                  <th>#</th>
+                  <th>Aggregate Query</th>
+                  <th>Major Search Intention (by user survey)</th>
+                  <th>Verify Query</th>
+                </tr>
+                <tr>
+                  <td>AQ1</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=count+department+Karoline&amp;dataset=employee&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>count department Karoline</b></a></td>
+                  <td>Find the  number of deparyments in which Karoline works.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=department+Karoline&amp;dataset=employee&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>department Karoline</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ2</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=count+employee+female+groupby+department&amp;dataset=employee&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>count employee female groupby department</b></a></td>
+                  <td>Find the  number of female employees in each department.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=employee+female+department+production&amp;dataset=employee&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>employee female department production</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ3</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=min+birthdate+department+research&amp;dataset=employee&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>min birthdate department research</b></a></td>
+                  <td>Find the  oldest birthdate of employees in the research department.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=birthdate+department+research&amp;dataset=employee&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>birthdate department research</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ4</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=avg+salary+overlaps+[2000,2005]&amp;dataset=employee&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>avg salary overlaps [2000,2005]</b></a></td>
+                  <td>Find the average salary of employees from 2000 to 2005.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=salary+overlaps+[2008,2009]&amp;dataset=employee&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>salary overlaps [2000,2005]</b></a></td>
+                </tr>
+                <tr>
+                  <td>AQ5</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=count+employee+leader+during+[1999-01,2002-12]&amp;dataset=employee&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>count employee leader during [1999-01,2002-12]</b></a></td>
+                  <td>Find the  number of employees that have the leader title during 1999-01 to 2002-12.</td>
+                  <td><a href="http://powerq.comp.nus.edu.sg/powerq?searchBox=employee+leader+during+[1999-01,2002-12]&amp;dataset=employee&amp;page=homepage" target="_blank" style="text-decoration: none;"><b>employee leader during [1999-01,2002-12]</b></a></td>
+                </tr>
+              </table>
+            </td></tr>
+          </table>
+          <br>
+          <p><img src="images/bullet.png" width="32" height="32" align="absmiddle">For those who want to have a try and issue your own query, we list the information of some movies in IMDB and some employees in Employee as follows:</p>
+          <br>
+          <p align="center"><b>IMDB database</b></p>
+          <table border="1" bordercolor="#B6C7D8" cellspacing="0" cellpadding="20" align="center">
+            <tr>
+              <th nowrap>title</th>
+              <th nowrap>year</th>
+              <th nowrap>votes</th>
+              <th nowrap>rating</th>
+              <th nowrap>genre</th>
+              <th nowrap>language</th>
+              <th nowrap>company</th>
+              <th nowrap>director</th>
+              <th nowrap>writer</th>
+              <th nowrap>cast</th>
+            </tr>
+            <tr>
+              <td nowrap align="center">The Dark Knight</td>
+              <td nowrap align="center">2008</td>
+              <td nowrap align="center">726635</td>
+              <td nowrap align="center">8.9</td>
+              <td nowrap align="center">Action<br>Crime<br>Drama<br>Thriller</td>
+              <td nowrap align="center">English<br>Mandarin</td>
+              <td nowrap align="center">Warner Bros. Pictures<br>DC Comics<br>Legendary Pictures<br>Syncopy</td>
+              <td nowrap align="center">Christopher Nolan</td>
+              <td nowrap align="center">David S. Goyer<br>Bob Kane<br>Christopher Nolan<br>Jonathan Nolan</td>
+              <td nowrap align="center">Christian Bale<br>Michael Caine<br>Heath Ledger<br>Morgan Freeman<br>Aaron Eckhart</td>
+            </tr>
+            <tr>
+              <td nowrap align="center">The Avengers</td>
+              <td nowrap align="center">2012</td>
+              <td nowrap align="center">266270</td>
+              <td nowrap align="center">8.6</td>
+              <td nowrap align="center">Action<br>Sci-Fi<br>Thriller</td>
+              <td nowrap align="center">English<br>Russian</td>
+              <td nowrap align="center">Paramount Pictures<br>Marvel Studios</td>
+              <td nowrap align="center">Joss Whedon</td>
+              <td nowrap align="center">Jack Kirby<br>Stan Lee<br>Zak Penn<br>Joss Whedon</td>
+              <td nowrap align="center">Robert Downey Jr.<br>Chris Evans<br>Mark Ruffalo<br>Chris Hemsworth<br>Scarlett Johansson</td>
+            </tr>
+            <tr>
+              <td nowrap align="center">Forrest Gump</td>
+              <td nowrap align="center">1994</td>
+              <td nowrap align="center">503704</td>
+              <td nowrap align="center">8.7</td>
+              <td nowrap align="center">Drama<br>Romance</td>
+              <td nowrap align="center">English</td>
+              <td nowrap align="center">Paramount Pictures</td>
+              <td nowrap align="center">Robert Zemeckis</td>
+              <td nowrap align="center">Winston Groom<br>Eric Roth</td>
+              <td nowrap align="center">Tom Hanks<br>Rebecca Williams<br>Sally Field<br>Michael Conner Humphreys<br>Harold G. Herthum</td>
+            </tr>
+            <tr>
+              <td nowrap align="center">Saving Private Ryan</td>
+              <td nowrap align="center">1998</td>
+              <td nowrap align="center">408820</td>
+              <td nowrap align="center">8.5</td>
+              <td nowrap align="center">Action<br>Drama<br>War</td>
+              <td nowrap align="center">Czech<br>English<br>French<br>German</td>
+              <td nowrap align="center">Paramount Pictures<br>Amblin Entertainment<br>DreamWorks SKG<br>Mutual Film Company<br>Mark Gordon Productions</td>
+              <td nowrap align="center">Steven Spielberg</td>
+              <td nowrap align="center">Robert Rodat</td>
+              <td nowrap align="center">Tom Hanks<br>Tom Sizemore<br>Edward Burns<br>Barry Pepper<br>Adam Goldberg</td>
+            </tr>
+            <tr>
+              <td nowrap align="center">The Matrix</td>
+              <td nowrap align="center">1999</td>
+              <td nowrap align="center">575297</td>
+              <td nowrap align="center">8.7</td>
+              <td nowrap align="center">Action<br>Adventure<br>Sci-Fi</td>
+              <td nowrap align="center">English</td>
+              <td nowrap align="center">Warner Bros. Pictures<br>Silver Pictures<br>Village Roadshow Pictures<br>Groucho II Film Partnership</td>
+              <td nowrap align="center">Andy Wachowski<br>Lana Wachowski</td>
+              <td nowrap align="center">Andy Wachowski<br>Lana Wachowski</td>
+              <td nowrap align="center">Keanu Reeves<br>Laurence Fishburne<br>Carrie-Anne Moss<br>Hugo Weaving<br>Gloria Foster</td>
+            </tr>
+          </table>
+          <br><br>
+          <p align="center"><b>Employee database</b></p>
+          <table border="1" bordercolor="#B6C7D8" cellspacing="0" cellpadding="20" align="center">
+            <tr>
+              <th nowrap>name</th>
+              <th nowrap>birthdate</th>
+              <th nowrap>gender</th>
+              <th nowrap>hiredate</th>
+              <th nowrap>salary</th>
+              <th nowrap>title</th>
+              <th nowrap>workfor (department)</th>
+            </tr>
+            <tr>
+              <td nowrap align="center">Shir McClurg</td>
+              <td nowrap align="center">1954-02-23</td>
+              <td nowrap align="center">Male</td>
+              <td nowrap align="center">1991-12-01</td>
+              <td nowrap align="center">56473: [1998-02-02,1998-02-22)</td>
+              <td nowrap align="center">Engineer: [1998-02-02,1998-02-22)</td>
+              <td nowrap align="center">Quality Management: [1998-02-02,1998-02-22)</td>
+            </tr>
+            <tr>
+              <td nowrap align="center">Dayanand Czap</td>
+              <td nowrap align="center">1955-08-26</td>
+              <td nowrap align="center">Female</td>
+              <td nowrap align="center">1985-05-28</td>
+              <td nowrap align="center">44034: [1994-02-27,1995-02-27)<br>43936: [1995-02-27,1996-02-27)<br>46632: [1996-02-27,1997-02-26)<br>48596: [1997-02-26,1998-02-26)<br>48568: [1998-02-26,1998-11-01)</td>
+              <td nowrap align="center">Senior Engineer: [1994-02-27,1998-11-01)</td>
+              <td nowrap align="center">Development: [1994-02-27,1995-12-03)<br>Research: [1995-12-03,1998-11-01)</td>
+            </tr>
+            <tr>
+              <td nowrap align="center">Oscar Ghazalie</td>
+              <td nowrap align="center">1963-07-27</td>
+              <td nowrap align="center">Male</td>
+              <td nowrap align="center">1992-02-05</td>
+              <td nowrap align="center">40000: [1992-02-05,1993-02-04]<br>40762: [1993-02-04,1994-02-04]<br>42236: [1994-02-04,1995-02-04)<br>...<br>53978: [2001-02-02,2002-02-02)<br>56654: [2002-02-02,now)</td>
+              <td nowrap align="center">Senior Engineer: [1992-02-05,1996-08-30)<br>Manager: [1996-08-30,now)</td>
+              <td nowrap align="center">Production: [1992-02-05,now)</td>
+            </tr>
+            <tr>
+              <td nowrap align="center">Ghassan Simkin</td>
+              <td nowrap align="center">1955-08-16</td>
+              <td nowrap align="center">Male</td>
+              <td nowrap align="center">1988-12-17</td>
+              <td nowrap align="center">41714: [1992-07-09,1993-07-09)<br>44136: [1993-07-09,1994-07-09)<br>48467: [1994-07-09,1995-07-09)<br>...<br>62106: [2001-07-07,2002-07-07)<br>62507: [2002-07-07,now)</td>
+              <td nowrap align="center">Assistant Engineer: [1992-07-09,1997-07-09)<br>Engineer: [1997-07-09,2002-07-09)<br>Senior Engineer: [2002-07-09,now)</td>
+              <td nowrap align="center">Development: [1992-07-09,now)</td>
+            </tr>
+            <tr>
+              <td nowrap align="center">Yuchang Weedman</td>
+              <td nowrap align="center">1960-03-25</td>
+              <td nowrap align="center">Male</td>
+              <td nowrap align="center">1989-07-10</td>
+              <td nowrap align="center">40000: [1989-07-10,1990-07-10)<br>40285: [1990-07-10,1991-07-10)<br>40514: [1991-07-10,1992-07-09)<br>...<br>58968: [2001-07-07,2002-07-07)<br>58745: [2002-07-07,now)</td>
+              <td nowrap align="center">Senior Staff: [1989-07-10,1996-01-03)<br>Manager: [1996-01-03,now)</td>
+              <td nowrap align="center">Customer Service: [1989-07-10,now)</td>
+            </tr>
+          </table>
+          <!--<p><img src="images/bullet.png" width="32" height="32" align="absmiddle">For those who want to issue queries on their own perspective views of underlying databases, please define the database Entity-Relationship diagram at <a href="http://powerq.comp.nus.edu.sg/homepage.html" style="text-decoration: none;">homepage</a>.</p>-->
+        </td>
+      </tr>
+      <tr><td nowrap align="right">back<a href="#top"><img src="images/home.jpg" width="64" height="64" border="0" align="absbottom" /></a></td></tr>
+    </table>
+
+    <br><br><br>
+    <a id="question4"></a>
+    <table width="100%" border="0">
+      <tr>
+        <td nowrap width="128" rowspan="2" align="right" valign="top"><img src="images/bookmark.png" width="82" height="82" /></td>
+        <td>
+          <p><strong>4. Publications</strong></p>
+          <hr><br><br>
+          <p class="STYLE6">[1] <b>Answering Keyword Queries involving Aggregates and GROUPBY on Relational Databases.</b> Zhong Zeng, Mong Li Lee and Tok Wang Ling. EDBT 2016</p>
+          <p class="STYLE6">[2] <b>PowerQ: An Interactive Keyword Search Engine for Aggregate Queries on Relational Databases (Demo).</b> Zhong Zeng, Mong Li Lee and Tok Wang Ling. EDBT 2016</p>
+          <p class="STYLE6">[3] <b>Towards an Interactive Keyword Search over Relational Databases (Demo).</b> Zhong Zeng, Zhifeng Bao, Mong Li Lee and Tok Wang Ling. WWW 2015</p>
+          <p class="STYLE6">[4] <b>ExpressQ: Identifying Keyword Context and Search Target in Relational Keyword Queries.</b> Zhong Zeng, Zhifeng Bao, Thuy Ngoc Le, Mong Li Lee and Tok Wang Ling. CIKM 2014</p>
+          <p class="STYLE6">[5] <b>A Semantic Approach to Keyword Search over Relational Databases.</b> Zhong Zeng, Zhifeng Bao, Mong Li Lee and Tok Wang Ling. ER 2013</p>
+        </td>
+      </tr>
+      <tr><td nowrap align="right">back<a href="#top"><img src="images/home.jpg" width="64" height="64" border="0" align="absbottom" /></a></td></tr>
+    </table>
+
+  </body>
+</html>

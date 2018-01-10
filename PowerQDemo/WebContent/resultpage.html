@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>ExpressQ</title>
+  <style type="text/css">
+  td,th {
+    font-family: Arial, Helvetica, sans-serif;
+     font-size: 14px;
+   }
+   img {
+     border: 0;
+   }
+   #resultDiv {
+    left: 2%;
+    width: 96%;
+    height: 80vh;
+    overflow: auto;
+    position: relative;
+   }
+   #resultTbl {
+    border-collapse:collapse;
+    padding: 1px;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    position: absolute;
+   }
+  .mgc-toolbar {
+    margin:0 0 10px 0;
+    height:45px;
+    background-image: url(images/toolbarbg.png);
+    background-repeat: repeat-x;
+  }
+  .STYLE1 {
+    color: #CC0033;
+    font-weight: bold;
+  }
+  .STYLE2 {
+    color: #0099CC;
+    font-weight: bold;
+  }
+  .STYLE6 {
+    color: #FF6600;
+    font-weight: bold;
+  }
+  .STYLE3 {font-family: "Courier New", Courier, monospace;}
+  .STYLE4 {background-color: #FFFFFF;  border: 2px solid #B6C7D8;}
+  .STYLE5 {background-color: #FFFFFF;  border: 1px solid #B6C7D8;}
+  </style>
+  <script src="library/jquery-1.9.1.js"></script>
+  <script src="library/jquery-ui.js"></script>
+  <link rel="stylesheet" href="library/jquery-ui.css" />
+  <link rel="stylesheet" type="text/css" href="scripts/Main.css" />
+</head>
+  <script type="text/javascript">
+    function navPage(p)
+    {
+      var addr = "http://localhost:8080/ExpressQDemo/result?page=result&pageIndex=" + p;
+      window.location = addr;
+    }
+    function whyDialog(n)
+    {
+      var div = "#dialog" + n;
+      $(div).dialog({
+        show: {
+          effect: "blind",
+          duration: 200
+        },
+        hide: {
+          effect: "blind",
+          duration: 200
+        },
+        resizable: true,
+        height: 360,
+        width: 700,
+        modal: true,
+        buttons: {
+          'OK': function() {
+            $(this).dialog('close');
+          }
+        }
+      });
+    }
+  </script>
+<body>
+<table width="100%">
+  <tr>
+    <td><a href="http://localhost:8080/ExpressQDemo/homepage.html"><img src="images/logo2.png"  border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+  <tr><td><div class="mgc-toolbar"></div></td></tr>
+</table>
+<table width="100%">
+  <tr>
+    <td valign="top" width="128"><img src="images/paper.png" width="128" height="128"></td>
+    <td rowspan="2">
+      <table width="100%" border = "1" cellspacing = "0"  bordercolor="#B6C7D8">
+        <tr><td><p class="STYLE3">Your keyword query is <strong><span class="STYLE2">COUNT</span> <span class="STYLE1">Code George Green</span></strong></p>
+          <p class="STYLE3">The interpretation is <strong>Find the <span class="STYLE2">COUNT</span> <span class="STYLE1">Code</span> of the Courses that are taught by the Lecturer with Lname matching <span class="STYLE1">George</span> and are enrolled by the Student with Sname matching <span class="STYLE1">Green</span> <span class="STYLE2">GROUPBY</span> Sid</strong></p>
+          <p class="STYLE3"> The result (<b>1-2 of 2</b>) is below :</p><br>
+          <div id="resultDiv" class="STYLE4">
+            <table id="resultTbl" cellpadding="10">
+               <tbody><tr>
+                <th align="left" class="STYLE5">#</th>
+                <th align="left" class="STYLE5">COUNT(Code)</th>
+                <th align="left" class="STYLE5">Sid</th>
+                <th align="left" class="STYLE5">&nbsp;&nbsp;&nbsp;</th>
+              </tr>
+              <tr>
+                <td nowrap="" class="STYLE5">1</td>
+                <td nowrap="" class="STYLE5">1</td>
+                <td nowrap="" class="STYLE5">s2</td>
+                <td nowrap class="STYLE5"><a href="javascript:whyDialog(0);">Verify</a>
+                  <div id="dialog0" title="Verify:" style="display: none;"><p>
+                    <span class="STYLE6">Lecturer</span><br>
+                    <span class="STYLE2">&nbsp;&nbsp;&nbsp;Lid</span>: l1<br>
+                    <span class="STYLE2">&nbsp;&nbsp;&nbsp;Lname</span>: George<br>
+                    <hr/>
+                    <span class="STYLE6">Student</span><br>
+                    <span class="STYLE2">&nbsp;&nbsp;&nbsp;Sid</span>: s2<br>
+                    <span class="STYLE2">&nbsp;&nbsp;&nbsp;Sname</span>: Green<br>
+                    
+                  </p></div>
+                </td>
+              </tr>
+              <tr>
+                <td nowrap="" class="STYLE5">2</td>
+                <td nowrap="" class="STYLE5">2</td>
+                <td nowrap="" class="STYLE5">s3</td>
+                <td nowrap class="STYLE5"><a href="javascript:whyDialog(0);">Verify</a>
+                  <div id="dialog0" title="Verify:" style="display: none;"><p>
+                    <span class="STYLE6">Lecturer</span><br>
+                    <span class="STYLE2">&nbsp;&nbsp;&nbsp;Lid</span>: l1<br>
+                    <span class="STYLE2">&nbsp;&nbsp;&nbsp;Lname</span>: George<br>
+                    <hr/>
+                    <span class="STYLE6">Student</span><br>
+                    <span class="STYLE2">&nbsp;&nbsp;&nbsp;Sid</span>: s3<br>
+                    <span class="STYLE2">&nbsp;&nbsp;&nbsp;Sname</span>: Green<br>
+                    <hr/>
+                  </p></div>
+                </td>
+              </tr>             
+              
+            </tbody>                      
+            </table>
+          </div>
+            <br>
+            <table border="0" align="center">
+              <tr>
+                <td><strong>1</strong></td>
+                <td><a href="javascript:navPage(2);">2</a></td>
+                <td><a href="javascript:navPage(3);">3</a></td>
+                <td><a href="javascript:navPage(4);">4</a></td>
+                <td><a href="javascript:navPage(5);">5</a></td>
+                <td><a href="javascript:navPage(6);">6</a></td>
+                <td><a href="javascript:navPage(7);">7</a></td>
+                <td><a href="javascript:navPage(8);">8</a></td>
+                <td><a href="javascript:navPage(9);">9</a></td>
+                <td><a href="javascript:navPage(10);">10</a></td>
+                <td><a href="javascript:navPage(11);">11</a></td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:navPage(2);">Next</a></td>
+              </tr>
+            </table>
+        </td></tr>
+      </table>
+    </td>
+  </tr>
+  <tr><td valign="bottom"><img src="images/print.png" width="128" height="128"></tr>
+</table>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,67 @@
+body {
+    font-family: verdana,arial,sans-serif;
+    font-size: 10pt;
+    margin: 30px;
+    background-color: #FFFFFF; /*#ffcc00;*/
+}
+
+.divMaskStyle {
+    position: relative;
+    /*left: 170px;
+    top: 150px;*/
+    width: 99%;
+    height: 160px;
+    background-color: #FFFFFF;
+    overflow: auto;   
+    border: 2px solid;
+    border-color: #CCCCCC;
+}
+
+.divPatternStyle {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 500px;
+    height: 500px;
+    background-color: #FFFFFF;
+    /*background-color: #CCCCCC;*/
+}
+
+.table-editable {
+    position: relative;
+}
+.table-editable .glyphicon {
+    font-size: 20px;
+}
+
+.table-remove-el, .table-remove-lk {
+    color: #700;
+    cursor: pointer;
+}
+.table-remove-el:hover, .table-remove-lk:hover {
+    color: #f00;
+}
+.table-up-el, .table-up-lk, .table-down-el, .table-down-lk {
+    color: #007;
+    cursor: pointer;
+}
+.table-up-el:hover, .table-up-lk:hover, .table-down-el:hover, .table-down-lk:hover {
+    color: #00f;
+}
+.table-add-el, .table-add-lk {
+    color: #070;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 0;
+}
+.table-add-el:hover, .table-add-lk:hover {
+    color: #0b0;
+}
+.select-select, .select-update, .select-ref {
+
+}
+.row-id {
+    font-style: italic;
+    font-weight: bold;
+}
