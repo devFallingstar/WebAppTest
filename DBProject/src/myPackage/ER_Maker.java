@@ -57,7 +57,7 @@ public class ER_Maker {
 		// linkData traverse for getting lot of information
 		for (int i = 0; i < linkArr.size(); i++) {
 			Node from = null, to = null;
-			for (int j = 0; j < ER.size(); j++) {				
+			for (int j = 0; j < ER.size(); j++) {
 				if ((ER.get(j)).getKey() == Integer.parseInt(((JSONObject) linkArr.get(i)).get("from").toString()))
 					from = ER.get(j);
 				if ((ER.get(j)).getKey() == Integer.parseInt(((JSONObject) linkArr.get(i)).get("to").toString()))
@@ -71,49 +71,46 @@ public class ER_Maker {
 			}
 			// We knew that which node is from and which node is to
 			if (from != null && to != null) {
-				// 'from' save 'to'			
+				// 'from' save 'to'
 				if (from.getClass().getName().compareTo("myPackage.Relationship") == 0) { // relationship type
 					((Relationship) from).addList(to);
 					if (((JSONObject) linkArr.get(i)).get("attriType") != null) {
-						if ((((JSONObject) linkArr.get(i)).get("attriType").toString()).compareTo("m") == 0) { 
+						if ((((JSONObject) linkArr.get(i)).get("attriType").toString()).compareTo("m") == 0) {
 							((Attribute) to).setIsMulti(true);
-						}
-						else if ((((JSONObject) linkArr.get(i)).get("attriType").toString()).compareTo("k") == 0) {
+						} else if ((((JSONObject) linkArr.get(i)).get("attriType").toString()).compareTo("k") == 0) {
 							((Attribute) to).setIsKey(true);
 						}
 					}
-					if (((JSONObject) linkArr.get(i)).get("type") != null)
-					{
-						if ((((JSONObject) linkArr.get(i)).get("type").toString()).compareTo("r") == 0) { 
-							if((((JSONObject) linkArr.get(i)).get("to")!=null))
-							{
-								((Relationship)from).addMultiList( Integer.parseInt(((JSONObject) linkArr.get(i)).get("to").toString()),((JSONObject) linkArr.get(i)).get("multi").toString());
+					if (((JSONObject) linkArr.get(i)).get("type") != null) {
+						if ((((JSONObject) linkArr.get(i)).get("type").toString()).compareTo("r") == 0) {
+							if ((((JSONObject) linkArr.get(i)).get("to") != null)) {
+								((Relationship) from).addMultiList(
+										Integer.parseInt(((JSONObject) linkArr.get(i)).get("to").toString()),
+										((JSONObject) linkArr.get(i)).get("multi").toString());
 							}
-							
+
 						}
 					}
 				}
 				if (to.getClass().getName().compareTo("myPackage.Relationship") == 0) { // relationship type
 					if (((JSONObject) linkArr.get(i)).get("attriType") != null) {
-						if ((((JSONObject) linkArr.get(i)).get("attriType").toString()).compareTo("m") == 0) { 
+						if ((((JSONObject) linkArr.get(i)).get("attriType").toString()).compareTo("m") == 0) {
 							((Attribute) from).setIsMulti(true);
-						}
-						else if ((((JSONObject) linkArr.get(i)).get("attriType").toString()).compareTo("k") == 0) {
+						} else if ((((JSONObject) linkArr.get(i)).get("attriType").toString()).compareTo("k") == 0) {
 							((Attribute) from).setIsKey(true);
 						}
 					}
-					if (((JSONObject) linkArr.get(i)).get("type") != null)
-					{
-						if ((((JSONObject) linkArr.get(i)).get("type").toString()).compareTo("r") == 0) { 
-							if((((JSONObject) linkArr.get(i)).get("from")!=null))
-							{
-								((Relationship)to).addMultiList(Integer.parseInt(((JSONObject) linkArr.get(i)).get("from").toString()),((JSONObject) linkArr.get(i)).get("multi").toString());
+					if (((JSONObject) linkArr.get(i)).get("type") != null) {
+						if ((((JSONObject) linkArr.get(i)).get("type").toString()).compareTo("r") == 0) {
+							if ((((JSONObject) linkArr.get(i)).get("from") != null)) {
+								((Relationship) to).addMultiList(
+										Integer.parseInt(((JSONObject) linkArr.get(i)).get("from").toString()),
+										((JSONObject) linkArr.get(i)).get("multi").toString());
 							}
-							
+
 						}
 					}
-				} 
-				else if (from.getClass().getName().compareTo("myPackage.Entity") == 0) {
+				} else if (from.getClass().getName().compareTo("myPackage.Entity") == 0) {
 					((Entity) from).addList(to);
 					// add attribute
 					if (((JSONObject) linkArr.get(i)).get("attriType") != null) {
@@ -121,14 +118,13 @@ public class ER_Maker {
 							((Attribute) to).setIsMulti(true);
 						} else if ((((JSONObject) linkArr.get(i)).get("attriType").toString()).compareTo("k") == 0) {
 							((Attribute) to).setIsKey(true);
-						}	
+						}
 					}
-					if (((JSONObject) linkArr.get(i)).get("nToN") != null) {		
-							((Attribute) to).setTypeOfMulti(((JSONObject) linkArr.get(i)).get("nToN").toString());	
+					if (((JSONObject) linkArr.get(i)).get("nToN") != null) {
+						((Attribute) to).setTypeOfMulti(((JSONObject) linkArr.get(i)).get("nToN").toString());
 					}
-				} 
-				else if (to.getClass().getName().compareTo("myPackage.Entity") == 0) {
-				
+				} else if (to.getClass().getName().compareTo("myPackage.Entity") == 0) {
+
 					if (((JSONObject) linkArr.get(i)).get("attriType") != null) {
 						if ((((JSONObject) linkArr.get(i)).get("attriType").toString()).compareTo("m") == 0) {
 							((Attribute) from).setIsMulti(true);
@@ -136,13 +132,11 @@ public class ER_Maker {
 							((Attribute) from).setIsKey(true);
 						}
 					}
-					if (((JSONObject) linkArr.get(i)).get("nToN") != null) {		
-						((Attribute) from).setTypeOfMulti(((JSONObject) linkArr.get(i)).get("nToN").toString());	
-				}
-				}
-				else
-				{
-					//error
+					if (((JSONObject) linkArr.get(i)).get("nToN") != null) {
+						((Attribute) from).setTypeOfMulti(((JSONObject) linkArr.get(i)).get("nToN").toString());
+					}
+				} else {
+					// error
 				}
 				// 'to' save 'from'
 				if (to.getClass().getName().compareTo("myPackage.Relationship") == 0) {

@@ -59,7 +59,7 @@ th, td {
 							href="#" target="_self" name="Mto1">M to 1</a></li>
 						<li id="linkType" onclick="cxcommand(event)" name="MtoM"><a
 							href="#" target="_self" name="MtoM">M to M</a></li>
-				
+
 					</ul>
 				</div>
 
@@ -93,10 +93,10 @@ th, td {
 							</a>
 						</tr>
 						<tr>
-							<form ACTION="http://localhost:8080/DBProject/ERCreater" 
-							method="POST">
-								<input type="hidden" id="ERJson" name="ERJson" value="" /> 
-								<input type="submit" id="submit" style="display: none;" />
+							<form ACTION="http://localhost:8080/DBProject/ERCreater"
+								method="POST">
+								<input type="hidden" id="ERJson" name="ERJson" value="" /> <input
+									type="submit" id="submit" style="display: none;" />
 							</form>
 							<td><Input type="submit" class="btn btn-warning"
 								name="Validate" id="ValidateButton" value="Validate"
@@ -106,8 +106,8 @@ th, td {
 						<tr>
 							<form ACTION="http://localhost:8080/DBProject/annotate.jsp"
 								method="POST">
-								<input type="hidden" id="ERJson2" name="diagram" value="" /> 
-								<input type="submit" id="submit_anno" style="display: none;" />
+								<input type="hidden" id="ERJson2" name="diagram" value="" /> <input
+									type="submit" id="submit_anno" style="display: none;" />
 							</form>
 							<td><Input type="submit" class="btn btn-warning"
 								name="Annotate" id="AnnotateButton" value="Annotate"
