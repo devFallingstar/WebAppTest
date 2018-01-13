@@ -101,6 +101,10 @@ th, td {
 							</ul></li>
 					</ul>
 				</div>
+				<div id="contextMenu2">
+					<ul>
+					</ul>
+				</div>
 			</span> <span
 				style="display: inline-block; vertical-align: top; padding: 7px; width: 250px">
 				<div style="height: 620px; vertical-align: top">
@@ -506,6 +510,17 @@ th, td {
 			if (contextmenu !== this.currentContextMenu) {
 				this.hideContextMenu();
 			}
+	         
+	         myDiagram.selection.each(function(node) {
+	        	 	var data = node.data;
+				
+	        	 	if (data.isKey == "1"){
+	        	 		cxElement = document.getElementById("contextMenu2");
+	        	 	}else{
+	        	 		cxElement = document.getElementById("contextMenu");
+	        	 	}
+	             console.log("data to is Key : " + data.isKey);
+	          });
 
 			// Show only the relevant buttons given the current state.
 			var cmd = diagram.commandHandler;
@@ -577,7 +592,7 @@ th, td {
 
 			changeType(diagram, istemp);
 			break;
-		}
+		}z
 		}
 		diagram.currentTool.stopTool();
 	}
@@ -601,7 +616,6 @@ th, td {
 				} else {
 					if (data.isTemp == "true")
 						diagram.model.setDataProperty(data, "text", sub2);
-
 				}
 				diagram.model.setDataProperty(data, "isTemp", istemp);
 			}

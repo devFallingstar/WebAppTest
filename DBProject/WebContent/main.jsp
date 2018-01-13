@@ -47,7 +47,6 @@ th, td {
 							target="_self" name="many">many</a></li>
 
 					</ul>
-
 				</div>
 				<div id="contextMenu2">
 					<ul>
@@ -59,10 +58,10 @@ th, td {
 							href="#" target="_self" name="Mto1">M to 1</a></li>
 						<li id="linkType" onclick="cxcommand(event)" name="MtoM"><a
 							href="#" target="_self" name="MtoM">M to M</a></li>
-
+						<li id="linkType" onclick="cxcommand(event)" name="isKey"><a
+							href="#" target="_self" name="isKey">Part of Key</a></li>
 					</ul>
 				</div>
-
 				<div id="contextMenu3">
 					<ul>
 					</ul>
@@ -93,10 +92,10 @@ th, td {
 							</a>
 						</tr>
 						<tr>
-							<form ACTION="http://localhost:8080/DBProject/ERCreater"
-								method="POST">
-								<input type="hidden" id="ERJson" name="ERJson" value="" /> <input
-									type="submit" id="submit" style="display: none;" />
+							<form ACTION="http://localhost:8080/DBProject/ERCreater" 
+							method="POST">
+								<input type="hidden" id="ERJson" name="ERJson" value="" /> 
+								<input type="submit" id="submit" style="display: none;" />
 							</form>
 							<td><Input type="submit" class="btn btn-warning"
 								name="Validate" id="ValidateButton" value="Validate"
@@ -106,8 +105,8 @@ th, td {
 						<tr>
 							<form ACTION="http://localhost:8080/DBProject/annotate.jsp"
 								method="POST">
-								<input type="hidden" id="ERJson2" name="diagram" value="" /> <input
-									type="submit" id="submit_anno" style="display: none;" />
+								<input type="hidden" id="ERJson2" name="diagram" value="" /> 
+								<input type="submit" id="submit_anno" style="display: none;" />
 							</form>
 							<td><Input type="submit" class="btn btn-warning"
 								name="Annotate" id="AnnotateButton" value="Annotate"
@@ -440,6 +439,8 @@ th, td {
 		}, {
 			rotatable : true,
 			rotateAdornmentTemplate : nodeRotateAdornmentTemplate
+		}, {
+			contextMenu:$(go.Adornment)
 		}, new go.Binding("angle").makeTwoWay(),
 		// the main object is a Panel that surrounds a TextBlock with a Shape
 		$(go.Panel, "Auto", {
@@ -595,7 +596,6 @@ th, td {
          var isE = 0;
          var isR = 0;
          var isA = 0;
-         var context2 = "";
          myDiagram.selection.each(function(link) {
             if (link instanceof go.Link) { // ignore any selected Links and simple Parts
                // Examine and modify the data, not the Node directly.
@@ -614,8 +614,6 @@ th, td {
                   cxElement = document.getElementById("contextMenu3");
                }
                //console.log("type: " + data.type);
-                 
-
             }
    
          });
@@ -732,7 +730,7 @@ th, td {
 						toArrow : "",
 						fromArrow : "",
 						
-						attriType: "",   //default ""
+						attriType: "n",   //default "none"
 		                type : "n",   // default "none"
 		                multi : "",   //default ""
 		                nToN : "0"    //default "0 (1 to 1)
@@ -812,7 +810,7 @@ th, td {
                                myDiagram.model.setDataProperty(link.data, "fromArrow", "Backward");
                                
                                myDiagram.model.setDataProperty(link.data, "type", "a");   //attribute랑 연결된 경우
-                               myDiagram.model.setDataProperty(link.data, "attriType", "k");
+                               myDiagram.model.setDataProperty(link.data, "attriType", "n");
                                myDiagram.model.setDataProperty(link.data, "nToN", "0");
                                myDiagram.model.setDataProperty(link.data, "multi", null);
                               
@@ -830,17 +828,14 @@ th, td {
                                myDiagram.model.setDataProperty(link.data, "fromArrow", "Backward");
                                
                                myDiagram.model.setDataProperty(link.data, "type", "a");   //attribute랑 연결된 경우
-                               myDiagram.model.setDataProperty(link.data, "attriType", "k");
+                               myDiagram.model.setDataProperty(link.data, "attriType", "n");
                                myDiagram.model.setDataProperty(link.data, "nToN", "0");
                                myDiagram.model.setDataProperty(link.data, "multi", null);
-                              
-                           
                            }
                            else if(node.data.type=="R")
                                       isR++;
                                    else
                                       isE++;
-
                         }
                      });
                      if(tmp.type == "A" && tmp2.type == "A"){
@@ -855,7 +850,6 @@ th, td {
                          myDiagram.model.setDataProperty(link.data, "multi", null);
                        
                          bugLink = link;            
-                   
                       }
                       if(tmp.type == "E" && tmp2.type == "E"){
                          myDiagram.model.setDataProperty(link.data, "toArrow", "");
@@ -870,12 +864,10 @@ th, td {
                          console.log(myDiagram.model.toJson());
                       
                          bugLink = link; 
-                         
                       }
                   }
                   
-                   if((isE == 1 && isR == 1) || isR ==2)     //Entity to Relationship
-                     {   
+                   if((isE == 1 && isR == 1) || isR ==2) {     //Entity to Relationship
                 	   myDiagram.model.setDataProperty(link.data, "toArrow", "");
                        myDiagram.model.setDataProperty(link.data, "fromArrow", "");
                         myDiagram.model.setDataProperty(link.data, "type", "r");   //attributeë ì°ê²°ë ê²½ì°
@@ -887,16 +879,12 @@ th, td {
                isE = 0;
                isR = 0;
                isA = 0;
-               
-               
             });
 
       if(bugLink!= null)
           myDiagram.commandHandler.deleteSelection(bugLink);
       
       myDiagram.skipsUndoManager = oldskip;
-      //myDiagram.commitTransaction("change");
-
    }
 
    // This is the general menu command handler, parameterized by the name of the command.
@@ -911,9 +899,7 @@ th, td {
          changeNtoN(diagram, linkType);
          break;
       case "linkType": {
-         //var istemp = window.getComputedStyle(document.elementFromPoint(event.clientX, event.clientY).parentElement)["background-color"];
          var linkType = document.elementFromPoint(event.clientX,event.clientY).name;
-         //var istemp = document.getElementById("test_id").getAttribute('name');
 
          changeType(diagram, linkType);
          break;
@@ -922,7 +908,6 @@ th, td {
       diagram.currentTool.stopTool();
    }
    function changeNtoN(diagram, nToN) {
-
       diagram.startTransaction("change");
       diagram.selection.each(function(link) {
          if (link instanceof go.Link) { // ignore any selected Links and simple Parts
@@ -950,39 +935,33 @@ th, td {
             // Examine and modify the data, not the Node directly.
             var data = link.data;
 
-            //saveDiagramProperties();  
-            //var jsontext = myDiagram.model.toJson();
-            //window.alert(jsontext);
-
             // Call setDataProperty to support undo/redo as well as
             // automatically evaluating any relevant bindings.
             var tmp = diagram.model.findNodeDataForKey(data.to);
             var tmp2 = diagram.model.findNodeDataForKey(data.from);
+            
+            /* init before checking */
+	    	 	diagram.model.setDataProperty(tmp, "fill", "#00AD5F");
+	    	 	diagram.model.setDataProperty(tmp, "isKey", "0");
+	    	 	diagram.model.setDataProperty(tmp2, "isKey", "0");
+	    	 	
             switch (attriType) {
             case "1to1":
-                //diagram.model.setDataProperty(link.data, "nToN", "0");         
-                //diagram.model.setDataProperty(link.data, "text", "1");
-                //diagram.model.setDataProperty(link.data, "toText", "1");
                 diagram.model.setDataProperty(data, "toArrow", "Standard");
                 diagram.model.setDataProperty(data, "fromArrow", "Backward");               
-                diagram.model.setDataProperty(data, "attriType", "k");
                 diagram.model.setDataProperty(data, "nToN", "0");
+                diagram.model.setDataProperty(data, "attriType", "n");
                 
-                break;
                 break;
              case "1toM":
                 diagram.model.setDataProperty(link.data, "nToN", "1");
                 if(tmp.type == "A"){
                    diagram.model.setDataProperty(data, "toArrow", "Standard");
                    diagram.model.setDataProperty(data, "fromArrow", "");   
-                   //diagram.model.setDataProperty(link.data, "text", "M");
-                   //diagram.model.setDataProperty(link.data, "toText", "1");
                 }
                 if(tmp2.type == "A"){
                    diagram.model.setDataProperty(data, "fromArrow", "Backward");
                    diagram.model.setDataProperty(data, "toArrow", "");   
-                   //diagram.model.setDataProperty(link.data, "text", "1");
-                   //diagram.model.setDataProperty(link.data, "toText", "M");
                 }         
                 diagram.model.setDataProperty(data, "attriType", "n");
                 break;
@@ -991,40 +970,47 @@ th, td {
                 if(tmp.type == "A"){
                    diagram.model.setDataProperty(data, "fromArrow", "Backward");
                    diagram.model.setDataProperty(data, "toArrow", "DoubleFeathers");
-                   //diagram.model.setDataProperty(link.data, "text", "1");
-                   //diagram.model.setDataProperty(link.data, "toText", "M");
                 }
                 if(tmp2.type == "A"){
                    diagram.model.setDataProperty(data, "toArrow", "Standard");
                    diagram.model.setDataProperty(data, "fromArrow", "BackwardDoubleFeathers");
-                   //diagram.model.setDataProperty(link.data, "text", "M");
-                   //diagram.model.setDataProperty(link.data, "toText", "1");
                 }
                 diagram.model.setDataProperty(data, "attriType", "n");
                 break;
              case "MtoM":
-                 
-                      if(tmp.type == "A"){
-                         diagram.model.setDataProperty(data, "toArrow", "DoubleFeathers");
-                         diagram.model.setDataProperty(data, "fromArrow", "");
-                      }
-                      if(tmp2.type == "A"){
-                         diagram.model.setDataProperty(data, "toArrow", "");
-                         diagram.model.setDataProperty(data, "fromArrow", "BackwardDoubleFeathers");
-                      }         
+                if(tmp.type == "A"){
+                   diagram.model.setDataProperty(data, "toArrow", "DoubleFeathers");
+                   diagram.model.setDataProperty(data, "fromArrow", "");
+                }
+                if(tmp2.type == "A"){
+                   diagram.model.setDataProperty(data, "toArrow", "");
+                   diagram.model.setDataProperty(data, "fromArrow", "BackwardDoubleFeathers");
+                }         
                 diagram.model.setDataProperty(link.data, "nToN", "3");
-                //diagram.model.setDataProperty(link.data, "text", "M");
-                //diagram.model.setDataProperty(link.data, "toText", "M");
                 diagram.model.setDataProperty(data, "attriType", "m");
                 break;
-         
-
+             case "isKey":
+				 diagram.model.setDataProperty(data, "toArrow", "Standard");
+                 diagram.model.setDataProperty(data, "fromArrow", "Backward");               
+                 diagram.model.setDataProperty(data, "attriType", "k");
+                 diagram.model.setDataProperty(data, "nToN", "0");
+                 if(tmp.type == "A"){
+                  	diagram.model.setDataProperty(tmp2, "isKey", "0");
+             	 	diagram.model.setDataProperty(tmp, "isKey", "1");
+                	 	diagram.model.setDataProperty(tmp, "fill", "#FA1010");
+                  }
+                  if(tmp2.type == "A"){
+                 	diagram.model.setDataProperty(tmp, "isKey", "0");
+               	 	diagram.model.setDataProperty(tmp2, "isKey", "1");
+                	  	diagram.model.setDataProperty(tmp2, "fill", "#FA1010");
+                  } 
+                 console.log("name of tmp : " + tmp.text);
+                 console.log("name of tmp2 : " + tmp2.text);
+                 break;
             }
-
          }
       });
       diagram.commitTransaction("change");
-      //window.alert(jsontext);
    }
 
 	// Show the diagram's model in JSON format that the user may edit
