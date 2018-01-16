@@ -48,7 +48,6 @@ public class Translate extends HttpServlet {
 		String query = new String();
 		String table = new String();
 		
-		
 		try {
 			stringToJson = (JSONObject)parser.parse(jsonTString);
 			JSONArray nodeArr = (JSONArray) stringToJson.get("nodeDataArray");
@@ -61,7 +60,7 @@ public class Translate extends HttpServlet {
 					String name = eachNodeObject.get("text").toString();
 					String dataType = eachNodeObject.get("dataType").toString();
 					typeMap.put(name, dataType);
-					System.out.println(name + " | " + dataType);
+//					System.out.println(name + " | " + dataType);
 				}catch(Exception e) {
 					// Do Nothing
 				}
@@ -71,8 +70,6 @@ public class Translate extends HttpServlet {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		
-		
 		
 		MakeTable mt = new MakeTable();
 		MakeQuery mk = new MakeQuery();

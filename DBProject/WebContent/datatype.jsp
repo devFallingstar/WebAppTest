@@ -535,9 +535,9 @@ th, td {
           myDiagram.selection.each(function(node) {
                if (node instanceof go.Node) {
                   var data = node.data;
-                  var type = data.iskey;
+                  var type = data.type;
                   console.log(type);
-                  if(type=="1")
+                  if(type != "A")
                      cxElement = document.getElementById("contextMenu3");
                   else
                      cxElement = document.getElementById("contextMenu");
