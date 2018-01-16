@@ -137,13 +137,13 @@ table, th, td {
 							<td><Input type="submit" class="btn btn-warning"
 								name="Translate" id="TranslateButton" value="Back"
 								onclick="window.history.back();"
-								style="font-size: 50px; width: 230px; height: 90px"></td>
+								style="font-size: 20px; width: 230px; height: 90px"></td>
 						</tr>
 						<tr>
 							<td><Input type="submit" class="btn btn-warning"
-								name="Query" id="QueryButton" value="Query"
+								name="Query" id="QueryButton" value="SQL Schema Definition"
 								onClick="queryClick()"
-								style="font-size: 50px; width: 230px; height: 90px"></td>
+								style="font-size: 20px; width: 230px; height: 90px"></td>
 						</tr>
 					</table>
 				</div>
@@ -170,7 +170,7 @@ function save() {
 function queryClick() {
 	document.getElementById("myDiagramDiv").innerHTML = document.getElementById("myQuery").innerHTML;
 	document.getElementById("QueryButton").value = "Back";
-	document.getElementById("TranslateButton").value = "Translate";
+	document.getElementById("TranslateButton").value = "Conceptual Schema";
 	document.getElementById("TranslateButton").disabled = "true";
 	document.getElementById("QueryButton").onclick = function(){window.history.back();};
 }

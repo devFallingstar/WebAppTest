@@ -150,14 +150,14 @@ th, td {
 								<input type="submit" id="submit_tran" style="display: none;" />
 							</form>
 							<td><Input type="submit" class="btn btn-warning"
-								name="Translate" id="TranslateButton" value="Translate"
+								name="Translate" id="TranslateButton" value="Conceptual Schema"
 								onclick="translateClick()"
-								style="font-size: 50px; width: 230px; height: 90px"></td>
+								style="font-size: 20px; width: 230px; height: 90px"></td>
 						</tr>
 						<tr>
 							<td><Input type="submit" class="btn btn-warning"
-								name="Query" id="QueryButton" value="Query" disabled="disabled"
-								style="font-size: 50px; width: 230px; height: 90px"></td>
+								name="Query" id="QueryButton" value="SQL Schema Definition" disabled="disabled"
+								style="font-size: 20px; width: 230px; height: 90px"></td>
 						</tr>
 					</table>
 				</div>

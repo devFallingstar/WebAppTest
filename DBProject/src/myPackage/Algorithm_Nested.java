@@ -135,7 +135,7 @@ public class Algorithm_Nested {
 								Attribute attNode = (Attribute) tmpNode;
 								if (!attNode.isTemporal && attNode.getIsMulti()) {
 									Relation nestedRel = new Relation();
-									nestedRel.setName(node.name + "_" + attNode.getName());
+									nestedRel.setName(node.name + "-" + attNode.getName());
 									nestedRel.addKeyLists(attNode.name);
 									relation.addNestedLists(nestedRel);
 								}
@@ -159,7 +159,7 @@ public class Algorithm_Nested {
 							Attribute attNode = (Attribute) tmpNode;
 							if (!attNode.isTemporal && attNode.getIsMulti()) {
 								Relation nestedRel = new Relation();
-								nestedRel.setName(node.name + "_" + attNode.getName());
+								nestedRel.setName(node.name + "-" + attNode.getName());
 								nestedRel.addKeyLists(attNode.name);
 								relation.addNestedLists(nestedRel);
 							}
@@ -170,12 +170,12 @@ public class Algorithm_Nested {
 						if (isAttribute(tmpNode2)) {
 							Attribute attNode = (Attribute) tmpNode2;
 							Relation nestedRel2 = new Relation();
-							nestedRel2.setName(node.name + "_" + attNode.getName());
+							nestedRel2.setName(node.name + "-" + attNode.getName());
 							if (attNode.isTemporal)// If any attribute is
 													// temporal,
 							{
 								nestedRel2.addKeyLists(attNode.name + "_Start");
-								nestedRel2.addAttLists(attNode.name + "_End");
+								nestedRel2.addAttLists(attNode.name + "-End");
 								// If a attribute is 1:1 or m:1 relationship
 								if (attNode.getTypeOfMulti().equals("0") || attNode.getTypeOfMulti().equals("2")) {
 									if (!attNode.getIsKey())
@@ -245,7 +245,7 @@ public class Algorithm_Nested {
 								Attribute attNode = (Attribute) tmpNode;
 								if (!attNode.isTemporal && attNode.getIsMulti()) {
 									Relation g2 = new Relation();
-									g2.setName(g1.getName() + "_" + attNode.name);
+									g2.setName(g1.getName() + "-" + attNode.name);
 									g2.addKeyLists(attNode.name);
 									g1.addNestedLists(g2);
 								}
@@ -285,7 +285,7 @@ public class Algorithm_Nested {
 							if (attNode.isTemporal) {
 								relation1.setName(node.name);
 								g1.addKeyLists(attNode.name + "_Start");
-								g1.addAttLists(attNode.name + "_End");
+								g1.addAttLists(attNode.name + "-End");
 								if (attNode.getTypeOfMulti().equals("0") || attNode.getTypeOfMulti().equals("2")) {
 									System.out.println(attNode.getTypeOfMulti());
 									if (!attNode.getIsKey())

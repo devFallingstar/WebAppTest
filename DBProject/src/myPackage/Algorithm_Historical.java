@@ -75,7 +75,7 @@ public class Algorithm_Historical {
 							if (attNode.isTemporal && attNode.getIsMulti()) {
 								Relation relation2 = new Relation();
 								if (!tmp1) {
-									relation2.setName(node.name + "_" + attNode.name);
+									relation2.setName(node.name + "-" + attNode.name);
 									tmp1 = true;
 								}
 								relation2.addKeyLists(attNode.name);
@@ -100,8 +100,8 @@ public class Algorithm_Historical {
 										}
 									}
 								}
-								relation2.addKeyLists(attNode.name + "_Start");
-								relation2.addAttLists(attNode.name + "_End");
+								relation2.addKeyLists(attNode.name + "-Start");
+								relation2.addAttLists(attNode.name + "-End");
 								R.add(relation2);
 							}
 						}
@@ -116,7 +116,7 @@ public class Algorithm_Historical {
 							if (attNode.isTemporal && !attNode.getIsMulti()) {
 								Relation relation3 = new Relation();
 								if (!tmp1) {
-									relation3.setName(node.name + "_" + attNode.name);
+									relation3.setName(node.name + "-" + attNode.name);
 									tmp1 = true;
 								}
 								relation3.addAttLists(attNode.name);
@@ -141,8 +141,8 @@ public class Algorithm_Historical {
 										}
 									}
 								}
-								relation3.addKeyLists(attNode.name + "_Start");
-								relation3.addAttLists(attNode.name + "_End");
+								relation3.addKeyLists(attNode.name + "-Start");
+								relation3.addAttLists(attNode.name + "-End");
 								R.add(relation3);
 							}
 						}
@@ -210,8 +210,8 @@ public class Algorithm_Historical {
 					 * ////Single Temporal attribute for(Node tmpNode2:getAttributes(node)) {
 					 * if(isAttribute(tmpNode2)) { Attribute attNode = (Attribute)tmpNode2;
 					 * if(attNode.isTemporal&&!attNode.getIsMulti()) {
-					 * relation4.addKeyLists(attNode.name+"_Start");
-					 * relation4.addAttLists(attNode.name+"_End"); } else if(attNode.getIsMulti()) {
+					 * relation4.addKeyLists(attNode.name+"-Start");
+					 * relation4.addAttLists(attNode.name+"-End"); } else if(attNode.getIsMulti()) {
 					 * relation4.subAttLists(attNode.name); } } }
 					 */
 					R.add(relation4);
@@ -248,7 +248,7 @@ public class Algorithm_Historical {
 							if (attNode.isTemporal && attNode.getIsMulti()) {
 								Relation relation6 = new Relation();
 								if (!tmp1) {
-									relation6.setName(node.name + "_" + attNode.name);
+									relation6.setName(node.name + "-" + attNode.name);
 
 									tmp1 = true;
 								}
@@ -279,8 +279,8 @@ public class Algorithm_Historical {
 									}
 
 								}
-								relation6.addKeyLists(attNode.getName() + "_Start");
-								relation6.addAttLists(attNode.getName() + "_End");
+								relation6.addKeyLists(attNode.getName() + "-Start");
+								relation6.addAttLists(attNode.getName() + "-End");
 								R.add(relation6);
 							}
 						}
@@ -295,7 +295,7 @@ public class Algorithm_Historical {
 							if (attNode.isTemporal && !attNode.getIsMulti()) {
 								Relation relation7 = new Relation();
 								if (!tmp1) {
-									relation7.setName(node.name + "_" + attNode.name);
+									relation7.setName(node.name + "-" + attNode.name);
 
 									tmp1 = true;
 								}
@@ -324,8 +324,8 @@ public class Algorithm_Historical {
 										}
 									}
 								}
-								relation7.addKeyLists(attNode.getName() + "_Start");
-								relation7.addAttLists(attNode.getName() + "_End");
+								relation7.addKeyLists(attNode.getName() + "-Start");
+								relation7.addAttLists(attNode.getName() + "-End");
 								R.add(relation7);
 							}
 						}

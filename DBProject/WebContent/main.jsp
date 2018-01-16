@@ -115,14 +115,14 @@ th, td {
 						</tr>
 						<tr>
 							<td><Input type="submit" class="btn btn-warning"
-								name="Translate" id="TranslateButton" value="Translate"
+								name="Translate" id="TranslateButton" value="Conceptual Schema"
 								disabled="disabled"
-								style="font-size: 50px; width: 230px; height: 90px"></td>
+								style="font-size: 20px; width: 230px; height: 90px"></td>
 						</tr>
 						<tr>
 							<td><Input type="submit" class="btn btn-warning"
-								name="Query" id="QueryButton" value="Query" disabled="disabled"
-								style="font-size: 50px; width: 230px; height: 90px"></td>
+								name="Query" id="QueryButton" value="SQL Schema Definition" disabled="disabled"
+								style="font-size: 20px; width: 230px; height: 90px"></td>
 						</tr>
 					</table>
 				</div>
@@ -813,8 +813,6 @@ th, td {
                                myDiagram.model.setDataProperty(link.data, "attriType", "n");
                                myDiagram.model.setDataProperty(link.data, "nToN", "0");
                                myDiagram.model.setDataProperty(link.data, "multi", null);
-                              
-                           
                            }
                            else if(node.data.type=="R")
                                       isR++;
@@ -941,7 +939,7 @@ th, td {
             var tmp2 = diagram.model.findNodeDataForKey(data.from);
             
             /* init before checking */
-	    	 	diagram.model.setDataProperty(tmp, "fill", "#00AD5F");
+	    	 	//diagram.model.setDataProperty(tmp, "fill", "#00AD5F");
 	    	 	diagram.model.setDataProperty(tmp, "isKey", "0");
 	    	 	diagram.model.setDataProperty(tmp2, "isKey", "0");
 	    	 	
@@ -1003,7 +1001,7 @@ th, td {
                  	diagram.model.setDataProperty(tmp, "isKey", "0");
                	 	diagram.model.setDataProperty(tmp2, "isKey", "1");
                 	  	diagram.model.setDataProperty(tmp2, "fill", "#FA1010");
-                  } 
+                  }
                  console.log("name of tmp : " + tmp.text);
                  console.log("name of tmp2 : " + tmp2.text);
                  break;

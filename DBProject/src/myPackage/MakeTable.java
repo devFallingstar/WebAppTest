@@ -5,134 +5,137 @@ import java.util.ArrayList;
 public class MakeTable {
 	// This is class for making table about all situation(Current,Historical,Nested
 	// Historical)
-	private String makeTableRow(String showTable, ArrayList<Relation> relations, String suffix) {
-		// Generate Current Tables
+	
+	private String makeGeneralSchema(String showTable, ArrayList<Relation> relations) {
 		for (Relation relation : relations) {
-			if (relation != null && !relation.getName().equals("null") && !relation.getName().trim().equals("")) {
-				if (suffix.trim().equals("F")) {
-					showTable += "<table><caption>" + "Relation : " + relation.getName() + "</caption><tr>";
-				} else {
-					showTable += "<table><caption>" + "Relation : " + relation.getName() + "_" + suffix
-							+ "</caption><tr>";
-				}
-
-				if (relation.getKeyLists().size() != 0) {
-					showTable += "<td><u>";
-					for (String key : relation.getKeyLists()) {
-						if (key.trim().equals("Start") || key.trim().equals("End")) {
-							key = relation.getName() + "_" + key;
-						}
-						showTable += key + " |";
-					}
-					showTable = showTable.substring(0, showTable.length() - 1);
-					showTable += "</u></td>";
-				}
-				for (String attr : relation.getAttLists()) {
-					if (attr.trim().equals("Start") || attr.trim().equals("End")) {
-						attr = relation.getName() + "_" + attr;
-					}
-					showTable += "<td>" + attr + "</td>";
-				}
-				showTable += "</tr></table><br><br>";
-			}
-		}
+	         if (relation != null && !relation.getName().equals("null") && !relation.getName().trim().equals("")) {
+	            showTable += "<span style =" + "'font-size:15px'" + ">Relation  " + relation.getName() + " =( ";
+	            if (relation.getKeyLists().size() != 0) {
+	               showTable += "<span style =" + "'color:red; font-size:13px;'" + ">" + "<u>";
+	               for (String key : relation.getKeyLists()) {
+	                  if (key.equals("Start"))
+	                     key = relation.getName() + "-" + key;
+	                  else if (key.equals("End"))
+	                     key = relation.getName() + "-" + key;
+	                  showTable += key + ", ";
+	               }
+	               showTable = showTable.substring(0, showTable.length() - 2);
+	               showTable += "</u></span>" + " , ";
+	            }
+	            showTable += "<span style =" + "'font-size:13px'" + ">";
+	            for (String attr : relation.getAttLists()) {
+	               if (attr.equals("Start"))
+	                  attr = relation.getName() + "-" + attr;
+	               else if (attr.equals("End"))
+	                  attr = relation.getName() + "-" + attr;
+	               showTable += attr + " , ";
+	               
+	            }
+	            showTable = showTable.substring(0, showTable.length() - 2);
+	            showTable += "</span>)</span><br><br>";
+	         }
+	      }
+		return showTable;
+	}
+	
+	private String makeHistoricalSchema(String showTable, ArrayList<Relation> relations) {
+		for (Relation relation : relations) {
+	         if (relation != null && !relation.getName().equals("null") && !relation.getName().trim().equals("")) {
+	            showTable += "<span style =" + "'font-size:15px'" + ">Relation  " + relation.getName() + "_H" + " =( ";
+	            if (relation.getKeyLists().size() != 0) {
+	               showTable += "<span style =" + "'color:red; font-size:13px;'" + ">" + "<u>";
+	               for (String key : relation.getKeyLists()) {
+	                  if (key.equals("Start"))
+	                     key = relation.getName() + "-" + key;
+	                  else if (key.equals("End"))
+	                     key = relation.getName() + "-" + key;
+	                  showTable += key + ", ";
+	               }
+	               showTable = showTable.substring(0, showTable.length() - 2);
+	               showTable += "</u></span>" + " , ";
+	            }
+	            showTable += "<span style =" + "'font-size:13px'" + ">";
+	            for (String attr : relation.getAttLists()) {
+	               if (attr.equals("Start"))
+	                  attr = relation.getName() + "-" + attr;
+	               else if (attr.equals("End"))
+	                  attr = relation.getName() + "-" + attr;
+	               showTable += attr + " , ";
+	            }
+	            showTable = showTable.substring(0, showTable.length() - 2);
+	            showTable += "</span>)</span><br><br>";
+	         }
+	      }
 		return showTable;
 	}
 
-	private String makeNestedTableRow(String showTable, ArrayList<Relation> relations) {
+	private String makeNestedSchema(String showTable, ArrayList<Relation> relations) {
 		for (Relation relation : relations) {
 			if (relation != null && !relation.getName().equals("null") && !relation.getName().trim().equals("")) {
-				showTable += "<br><table><caption>" + "Relation : " + relation.getName() + "_N</caption><tr>";
+				showTable += "<span style =" + "'font-size:15px'" + ">Relation  " + relation.getName() + "_N" + " =( ";
 				if (relation.getKeyLists().size() != 0) {
-					showTable += "<td rowspan='3'><u>";
+					showTable += "<span style =" + "'color:red; font-size:13px;'" + ">" + "<u>";
 					for (String key : relation.getKeyLists()) {
-						if (key.trim().equals("Start") || key.trim().equals("End")) {
-							key = relation.getName() + "_" + key;
-						}
-						showTable += key + " |";
+						if (key.equals("Start"))
+							key = relation.getName() + "-" + key;
+						else if (key.equals("End"))
+							key = relation.getName() + "-" + key;
+						showTable += key + ", ";
 					}
-					showTable = showTable.substring(0, showTable.length() - 1);
-					showTable += "</u></td>";
+					showTable = showTable.substring(0, showTable.length() - 2);
+					showTable += "</u></span>" + " , ";
 				}
+				showTable += "<span style =" + "'font-size:13px'" + ">";
 				for (String attr : relation.getAttLists()) {
-					if (attr.trim().equals("Start") || attr.trim().equals("End")) {
-						attr = relation.getName() + "_" + attr;
-					}
-					showTable += "<td  rowspan='3'>" + attr + "</td>";
+					if (attr.equals("Start"))
+						attr = relation.getName() + "-" + attr;
+					else if (attr.equals("End"))
+						attr = relation.getName() + "-" + attr;
+					showTable += attr + " , ";
 				}
+				if (relation.getNestedGroup().size() == 0) {
+					showTable = showTable.substring(0, showTable.length() - 2);
+					showTable += ")<br><br> ";
+				} else {
+					for (Relation attr : relation.getNestedGroup()) {
+						String attrName = attr.getName();
+						if (attr.getName().equals("Start"))
+							attrName = relation.getName() + "-" + attr.getName();
+						else if (attr.equals("End"))
+							attrName = relation.getName() + "-" + attr.getName();
+						showTable += attrName + " ( ";
 
-				for (Relation attr : relation.getNestedGroup()) {
-					if (attr.getNestedGroup().size() != 0)
-						showTable += "<td colspan='" + (1 + attr.getAttLists().size() + attr.getNestedGroup().size())
-								+ "'>" + attr.getName() + "</td>";
-					else
-						showTable += "<td colspan='" + (1 + attr.getAttLists().size()) + "'>" + attr.getName() + ""
-								+ "</td>";
-
-					System.out.println("Number : "
-							+ (attr.getKeyLists().size() + attr.getAttLists().size() + attr.getNestedGroup().size()));
-				}
-				showTable += "</tr><tr>";
-				for (Relation attr : relation.getNestedGroup()) {
-					if (attr.getNestedGroup().size() == 0) {
-						if (attr.getKeyLists().size() != 0) {
-							showTable += "<td rowspan='2'><u>";
-							for (String att : attr.getKeyLists()) {
-								if (att.trim().equals("Start") || att.trim().equals("End")) {
-									att = relation.getName() + "_" + att;
-								}
-								showTable += att + " |";
-							}
-							showTable = showTable.substring(0, showTable.length() - 1);
-							showTable += "</u></td>";
-						}
-						for (String att : attr.getAttLists()) {
-							if (att.trim().equals("Start") || att.trim().equals("End")) {
-								att = relation.getName() + "_" + att;
-							}
-							showTable += "<td rowspan='2'>" + att + "</td>";
-						}
-					}
-				}
-				for (Relation attr : relation.getNestedGroup()) {
-					if (attr.getNestedGroup().size() != 0) {
-						if (attr.getKeyLists().size() != 0) {
-							showTable += "<td rowspan='2'><u>";
-							for (String att : attr.getKeyLists()) {
-								if (att.trim().equals("Start") || att.trim().equals("End")) {
-									att = relation.getName() + "_" + att;
-								}
-								showTable += att + " |";
-							}
-							showTable = showTable.substring(0, showTable.length() - 1);
-							showTable += "</u></td>";
-						}
-						for (String att : attr.getAttLists()) {
-							if (att.trim().equals("Start") || att.trim().equals("End")) {
-								att = relation.getName() + "_" + att;
-							}
-							showTable += "<td rowspan='2'>" + att + "</td>";
-						}
-						for (Relation tmp : attr.getNestedGroup()) {
-							showTable += "<td>" + tmp.getName() + "</td>";
-						}
-						showTable += "</tr><tr>";
-						for (Relation tmp : attr.getNestedGroup()) {
-							if (tmp.getKeyLists().size() != 0) {
-								showTable += "<td rowspan='2'><u>";
-								for (String att : tmp.getKeyLists()) {
-									if (att.trim().equals("Start") || att.trim().equals("End")) {
-										att = relation.getName() + "_" + att;
+						for (Relation attR : relation.getNestedGroup()) {
+							if (attr.equals(attR)) {
+								if (attR.getNestedGroup().size() == 0) {
+									if (attR.getKeyLists().size() != 0) {
+										showTable += "<span style =" + "'color:red; font-size:13px;'" + ">" + "<u>";
+										for (String att : attR.getKeyLists()) {
+											if (att.equals("Start"))
+												att = relation.getName() + "-" + att;
+											else if (att.equals("End"))
+												att = relation.getName() + "-" + att;
+											showTable += att + ", ";
+										}
+										showTable = showTable.substring(0, showTable.length() - 2);
+										showTable += "</u></span>" + " , ";
 									}
-									showTable += att + " |";
+									for (String att : attR.getAttLists()) {
+										if (att.equals("Start"))
+											att = relation.getName() + "-" + att;
+										else if (att.equals("End"))
+											att = relation.getName() + "-" + att;
+										showTable += att + ", ";
+									}
 								}
-								showTable = showTable.substring(0, showTable.length() - 1);
-								showTable += "</u></td>";
 							}
 						}
+						showTable = showTable.substring(0, showTable.length() - 2);
+						showTable += "), ";
 					}
+					showTable = showTable.substring(0, showTable.length() - 2);
+					showTable += ")</span><br><br>";
 				}
-				showTable += "</tr></table>";
 			}
 		}
 		return showTable;
@@ -156,17 +159,17 @@ public class MakeTable {
 		relations_historical = c.makingHistorical(ERclass);
 
 		// Make the tables for general(flat) schema
-		showTable += "<h2 style=" + "'font-family:verdana'" + ">Generate Current Database Schema<h2>";
-		showTable = makeTableRow(showTable, relations_general, "F");
+		showTable += "<h2 style=" + "'font-family:verdana'" + ">Generate Current Database Schema</h2>";
+		showTable = makeGeneralSchema(showTable, relations_general);
 
 		// Make the tables for Historical schema
-		showTable += "<h2 style=" + "'font-family:verdana'" + ">Generate Historical Database Schema<h2>";
-		showTable = makeTableRow(showTable, relations_historical, "H");
+		showTable += "<h2 style=" + "'font-family:verdana'" + ">Generate Historical Database Schema</h2>";
+		showTable = makeHistoricalSchema(showTable, relations_historical);
 
 		// Make the tables for Nested schema
 		showTable += "<h2 style=" + "'font-family:verdana'"
-				+ ">Generate Nested Relations for Historical Database Schema<h2>";
-		showTable = makeNestedTableRow(showTable, relations_nested);
+				+ ">Generate Nested Relations for Historical Database Schema</h2>";
+		showTable = makeNestedSchema(showTable, relations_nested);
 
 		return showTable;
 	}

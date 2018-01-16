@@ -73,8 +73,8 @@ public class Algorithm_General {
 							Attribute attNode = (Attribute) tmpNode2;
 							if (attNode.isTemporal && !attNode.getIsMulti())// Single Temporal attribute
 							{
-								relation.addAttLists(attNode.name + "_Start");
-								System.out.println(attNode.getName() + "_Start");
+								relation.addAttLists(attNode.name + "-Start");
+								System.out.println(attNode.getName() + "-Start");
 							} else if (attNode.getIsMulti())// Multi-value attribute
 							{
 								relation.subAttLists(attNode.name);
@@ -91,7 +91,7 @@ public class Algorithm_General {
 							{
 								Relation relation1 = new Relation();
 								if (!tmp) {
-									relation1.setName(node.name + "_" + attNode.getName());
+									relation1.setName(node.name + "-" + attNode.getName());
 									tmp = true;
 								}
 								if (attNode.getTypeOfMulti().equals("1"))// The attribute is a 1:m relationship
@@ -130,7 +130,7 @@ public class Algorithm_General {
 							{
 								Relation relation2 = new Relation();
 								if (!tmp1) {
-									relation2.setName(node.name + "_" + attNode.getName());
+									relation2.setName(node.name + "-" + attNode.getName());
 									tmp1 = true;
 
 								}
@@ -155,7 +155,7 @@ public class Algorithm_General {
 									}
 									relation2.addKeyLists(attNode.name);
 								}
-								relation2.addAttLists(attNode.name + "_Start");
+								relation2.addAttLists(attNode.name + "-Start");
 								R.add(relation2);
 							}
 						}
@@ -228,7 +228,7 @@ public class Algorithm_General {
 							Attribute attNode = (Attribute) tmpNode2;
 							if (attNode.isTemporal && !attNode.getIsMulti())// Single Temporal attribute
 							{
-								relation4.addAttLists(attNode.name + "_Start");
+								relation4.addAttLists(attNode.name + "-Start");
 
 							}
 						}
@@ -242,7 +242,7 @@ public class Algorithm_General {
 							if (!attNode.isTemporal && attNode.getIsMulti()) {
 								Relation relation5 = new Relation();
 								if (!tmp) {
-									relation5.setName(node.name + "_" + attNode.name);
+									relation5.setName(node.name + "-" + attNode.name);
 									relation5.addKeyLists(attNode.name);
 									tmp = true;
 								}
@@ -283,7 +283,7 @@ public class Algorithm_General {
 							if (attNode.isTemporal && attNode.getIsMulti()) {
 								Relation relation6 = new Relation();
 								if (!tmp1) {
-									relation6.setName(node.name + "_" + attNode.name);
+									relation6.setName(node.name + "-" + attNode.name);
 									tmp1 = true;
 								}
 								relation6.addKeyLists(attNode.getName());
@@ -312,7 +312,7 @@ public class Algorithm_General {
 									}
 
 								}
-								relation6.addAttLists(attNode.getName() + "_Start");
+								relation6.addAttLists(attNode.getName() + "-Start");
 								R.add(relation6);
 							}
 						}
