@@ -115,6 +115,12 @@ th, td {
 						</tr>
 						<tr>
 							<td><Input type="submit" class="btn btn-warning"
+								name="DataSelect" id="DataSelectButton" value="Select Data Type"
+								disabled="disabled"
+								style="font-size: 20px; width: 230px; height: 90px"></td>
+						</tr>
+						<tr>
+							<td><Input type="submit" class="btn btn-warning"
 								name="Translate" id="TranslateButton" value="Conceptual Schema"
 								disabled="disabled"
 								style="font-size: 20px; width: 230px; height: 90px"></td>
@@ -126,7 +132,6 @@ th, td {
 						</tr>
 					</table>
 				</div>
-
 			</span>
 		</div>
 		<Span

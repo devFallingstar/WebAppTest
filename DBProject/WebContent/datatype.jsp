@@ -3,200 +3,190 @@
 <head>
 <title>NUS_Web</title>
 <link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+   href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel='stylesheet' href='contextmenu3.css' />
 <style>
 th, td {
-	padding: 5px;
-	text-align: left;
+   padding: 5px;
+   text-align: left;
 }
 </style>
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+   src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+   src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 <script src="go.js"></script>
 <script src="go-debug.js"></script>
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style type="text/css">
 /* CSS for the traditional context menu */
 #contextMenu {
-	z-index: 300;
-	position: absolute;
-	left: 5px;
-	border: 1px solid #444;
-	background-color: #F5F5F5;
-	display: none;
-	box-shadow: 0 0 10px rgba(0, 0, 0, .4);
-	font-size: 12px;
-	font-family: sans-serif;
-	font-weight: bold;
+   z-index: 300;
+   position: absolute;
+   left: 5px;
+   border: 1px solid #444;
+   background-color: #F5F5F5;
+   display: none;
+   box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+   font-size: 12px;
+   font-family: sans-serif;
+   font-weight: bold;
 }
 
 #contextMenu ul {
-	list-style: none;
-	top: 0;
-	left: 0;
-	margin: 0;
-	padding: 0;
+   list-style: none;
+   top: 0;
+   left: 0;
+   margin: 0;
+   padding: 0;
 }
 
 #contextMenu li a {
-	position: relative;
-	min-width: 60px;
-	color: #444;
-	display: inline-block;
-	padding: 6px;
-	text-decoration: none;
-	cursor: pointer;
+   position: relative;
+   min-width: 60px;
+   color: #444;
+   display: inline-block;
+   padding: 6px;
+   text-decoration: none;
+   cursor: pointer;
 }
 
 #contextMenu li:hover {
-	background: #CEDFF2;
-	color: #EEE;
+   background: #CEDFF2;
+   color: #EEE;
 }
 
 #contextMenu li ul li {
-	display: none;
+   display: none;
 }
 
 #contextMenu li ul li a {
-	position: relative;
-	min-width: 60px;
-	padding: 6px;
-	text-decoration: none;
-	cursor: pointer;
+   position: relative;
+   min-width: 60px;
+   padding: 6px;
+   text-decoration: none;
+   cursor: pointer;
 }
 
 #contextMenu li:hover ul li {
-	display: block;
-	margin-left: 0px;
-	margin-top: 0px;
+   display: block;
+   margin-left: 0px;
+   margin-top: 0px;
 }
 </style>
 </head>
 
 <body onload="init()">
 
-	<div id="sample">
+   <div id="sample">
 
-		<div style="width: 100%; white-space: nowrap;">
+      <div style="width: 100%; white-space: nowrap;">
 
-			<span
-				style="display: inline-block; vertical-align: top; padding: 5px; width: 82.5%">
-				<div id="myDiagramDiv"
-					style="border: solid 1px black; height: 620px"></div>
-				<div id="contextMenu">
-					<ul>
-						<li id="isTemp" class="hasSubMenu"><a href="#" target="_self">Type</a>
-							<ul class="subMenu" id="colorSubMenu">
-								<li style="background: crimson;"
-									onclick="cxcommand(event, 'isTemp')" name="true"><a
-									href="#" target="_self" name="true">Temporal</a></li>
-								<li style="background: chartreuse;"
-									onclick="cxcommand(event, 'isTemp')" name="fasle"><a
-									href="#" target="_self" name="false">None</a></li>
+         <span
+            style="display: inline-block; vertical-align: top; padding: 5px; width: 82.5%">
+            <div id="myDiagramDiv"
+               style="border: solid 1px black; height: 620px"></div>
+            <div id="contextMenu">
+               <ul>
+                  <li id="isTemp" class="hasSubMenu"><a href="#" target="_self">Type</a>
+                     <ul class="subMenu" id="colorSubMenu">
+                        <li style="background: crimson;"
+                           onclick="cxcommand(event, 'isTemp')" name="true"><a
+                           href="#" target="_self" name="true">Temporal</a></li>
+                        <li style="background: chartreuse;"
+                           onclick="cxcommand(event, 'isTemp')" name="fasle"><a
+                           href="#" target="_self" name="false">None</a></li>
 
-							</ul></li>
-					</ul>
-				</div>
-				<div id="contextMenu3">
-					<ul>
-					</ul>
-				</div>
-			</span> <span
-				style="display: inline-block; vertical-align: top; padding: 7px; width: 250px">
-				<div style="height: 620px; vertical-align: top">
-					<table>
-						<tr>
-							<td><Input type="submit" class="btn btn-warning"
-								name="Create" id="CreateButton" value="Create"
-								onclick="location.href='main.jsp'" disabled="disabled"
-								style="font-size: 50px; width: 230px; height: 90px"></td>
-						</tr>
-						<tr>
-							<td><Input type="submit" class="btn btn-warning" name="Load"
-								id="LoadButton" value="Load" onclick="openChild()"
-								disabled="disabled"
-								style="font-size: 50px; width: 230px; height: 90px"></td>
-						</tr>
-						<tr>
-							<a id="down" href="" download="">
-								<td><Input type="submit" class="btn btn-warning"
-									name="Save" id="SavedButton" value="Save" onclick="save()"
-									style="font-size: 50px; width: 230px; height: 90px"></td>
-							</a>
-						</tr>
-						<tr>
-							<form ACTION="http://localhost:8080/DBProject/ERCreater"
-								method="POST">
-								<input type="hidden" id="ERJson" name="ERJson" value="" /> <input
-									type="submit" id="submit" style="display: none;" />
-							</form>
-							<td><Input type="submit" class="btn btn-warning"
-								name="Validate" id="ValidateButton" value="Validate"
-								disabled="disabled" onclick="validClick()"
-								style="font-size: 50px; width: 230px; height: 90px"></td>
-						</tr>
-						<tr>
-							<td><Input type="submit" class="btn btn-warning"
-								name="Annotate" id="AnnotateButton" value="Back"
-								onclick="window.history.back();"
-								style="font-size: 50px; width: 230px; height: 90px"></td>
-						</tr>
-						<tr>
-							<form ACTION="http://localhost:8080/DBProject/datatype.jsp"
-								method="POST">
-								<input type="hidden" id="ERJson3" name="diagram" value="" /> <input
-									type="submit" id="submit_data" style="display: none;" />
-							</form>
-							<td><Input type="submit" class="btn btn-warning"
-								name="Translate" id="TranslateButton" value="Select Data Type"
-								onclick="dataTypeClick()"
-								style="font-size: 20px; width: 230px; height: 90px"></td>
-						</tr>
+                     </ul></li>
+               </ul>
+            </div>
+            <div id="contextMenu3">
+               <ul>
+               </ul>
+            </div>
+         </span> <span
+            style="display: inline-block; vertical-align: top; padding: 7px; width: 250px">
+            <div style="height: 620px; vertical-align: top">
+               <table>
+                  <tr>
+                     <td><Input type="submit" class="btn btn-warning"
+                        name="Create" id="CreateButton" value="Create"
+                        onclick="location.href='main.jsp'" disabled="disabled"
+                        style="font-size: 50px; width: 230px; height: 90px"></td>
+                  </tr>
+                  <tr>
+                     <td><Input type="submit" class="btn btn-warning" name="Load"
+                        id="LoadButton" value="Load" onclick="openChild()"
+                        disabled="disabled"
+                        style="font-size: 50px; width: 230px; height: 90px"></td>
+                  </tr>
+                  <tr>
+                     <a id="down" href="" download="">
+                        <td><Input type="submit" class="btn btn-warning"
+                           name="Save" id="SavedButton" value="Save" onclick="save()"
+                           style="font-size: 50px; width: 230px; height: 90px"></td>
+                     </a>
+                  </tr>
+                  <tr>
+                     <form ACTION="http://localhost:8080/DBProject/ERCreater" method="POST">
+                        <input type="hidden" id="ERJson" name="ERJson" value="" /> <input
+                           type="submit" id="submit" style="display: none;" />
+                     </form>
+                     <td><Input type="submit" class="btn btn-warning"
+                        name="Validate" id="ValidateButton" value="Validate"
+                        disabled="disabled" onclick="validClick()"
+                        style="font-size: 50px; width: 230px; height: 90px"></td>
+                  </tr>
+                  <tr>
+                     <td><Input type="submit" class="btn btn-warning"
+                        name="Annotate" id="AnnotateButton" value="Back"
+                        onclick="window.history.back();"
+                        style="font-size: 50px; width: 230px; height: 90px"></td>
+                  </tr>
+                  <tr>
+                     <form ACTION="http://localhost:8080/DBProject/Translate" method="POST">
+                        <input type="hidden" id="ERJson4" name="ERJson4" value="" /> 
+                        <input type="submit" id="submit_tran" style="display: none;" />
+                     </form>
+                     <td><Input type="submit" class="btn btn-warning"
+                        name="Translate" id="TranslateButton" value="Conceptual Schema"
+                        onclick="translateClick()"
+                        style="font-size: 20px; width: 230px; height: 90px"></td>
+                  </tr>
+                  <tr>
+                     <td><Input type="submit" class="btn btn-warning"
+                        name="Query" id="QueryButton" value="SQL Schema Definition" disabled="disabled"
+                        style="font-size: 20px; width: 230px; height: 90px"></td>
+                  </tr>
+               </table>
+            </div>
+         </span>
+      </div>
+      <Span
+         style="display: inline-block; vertical-align: top; padding: 5px; width: 80%">
+      </Span>
 
-						<tr>
-							<td><Input type="submit" class="btn btn-warning"
-								name="DataSelect" id="DataSelectButton"
-								value="Conceptual Schema" disabled="disabled"
-								style="font-size: 20px; width: 230px; height: 90px"></td>
-						</tr>
-						<tr>
-							<td><Input type="submit" class="btn btn-warning"
-								name="Query" id="QueryButton" value="SQL Schema Definition"
-								disabled="disabled"
-								style="font-size: 20px; width: 230px; height: 90px"></td>
-						</tr>
-					</table>
-				</div>
-			</span>
-		</div>
-		<Span
-			style="display: inline-block; vertical-align: top; padding: 5px; width: 80%">
-		</Span>
+      <div id="invisible">
+         <div>
+            <button id="SaveButton" onclick="save()">Save</button>
+            Diagram Model saved in JSON format:
+         </div>
 
-		<div id="invisible">
-			<div>
-				<button id="SaveButton" onclick="save()">Save</button>
-				Diagram Model saved in JSON format:
-			</div>
-
-			<textarea id="mySavedModel" style="width: 100%; height: 300px">
+         <textarea id="mySavedModel" style="width: 100%; height: 300px">
            <% 
               request.setCharacterEncoding("euc-kr");
               String a = request.getParameter("diagram");
-              System.out.println("Diagram data : " + a);
+              System.out.println(a);
            %>
            <%= a %>
     </textarea>
-			<textarea id="mySavedModel2" style="width: 100%; height: 300px"
-				name="ERJson">{ "class": "go.GraphLinksModel","linkFromPortIdProperty": "fromPort","linkToPortIdProperty": "toPort","nodeDataArray": [],"linkDataArray": []}</textarea>
-		</div>
-	</div>
-	</Span>
+          <textarea id="mySavedModel2" style="width: 100%; height: 300px"
+            name="ERJson">{ "class": "go.GraphLinksModel","linkFromPortIdProperty": "fromPort","linkToPortIdProperty": "toPort","nodeDataArray": [],"linkDataArray": []}</textarea>
+      </div>
+   </div>
+   </Span>
 </body>
 <script>
    $(document).ready(function() {
@@ -676,11 +666,11 @@ th, td {
       if (pos)
          myDiagram.initialPosition = go.Point.parse(pos);
    }
-   function dataTypeClick() {
+   function translateClick() {
       saveDiagramProperties();
       document.getElementById("mySavedModel2").value = myDiagram.model.toJson();
-      document.getElementById("ERJson3").value = document.getElementById("mySavedModel2").value;
-      document.getElementById("submit_data").click();
+      document.getElementById("ERJson4").value = document.getElementById("mySavedModel2").value;
+      document.getElementById("submit_tran").click();
    }
 </script>
 </html>

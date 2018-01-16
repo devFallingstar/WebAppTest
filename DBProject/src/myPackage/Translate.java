@@ -37,7 +37,7 @@ public class Translate extends HttpServlet {
 		// TODO Auto-generated method stub
 		PrintWriter out = response.getWriter();
 		RequestDispatcher dispatcher = null;
-		String jsonTString = request.getParameter("ERJson3");
+		String jsonTString = request.getParameter("ERJson4");
 		String query = new String();
 		String table = new String();
 
