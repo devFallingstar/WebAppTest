@@ -706,6 +706,7 @@ th, td {
 		            fill : "white",
 		            size : "250 70",
 		            isTemp : "false",
+		            dataType : "VARCHAR",
 		            
 		         },{
 				text : "Entity",
@@ -713,19 +714,22 @@ th, td {
 				fill : "lightyellow",
 				size : "150 70",
 				type : "E",
-				isTemp : "false"
+				isTemp : "false",
+				dataType : "VARCHAR",
 			}, {
 				text : "Relationship",
 				figure : "Diamond",
 				fill : "lightskyblue",
 				type : "R",
-				isTemp : "false"
+				isTemp : "false",
+				dataType : "VARCHAR",
 			}, {
 				text : "Attribute",
 				figure : "Ellipse",
 				fill : "#00AD5F",
 				type : "A",
-				isTemp : "false"
+				isTemp : "false",
+				dataType : "VARCHAR",
 			} ], [
 					// the Palette also has a disconnected Link, which the user can drag-and-drop
 					{

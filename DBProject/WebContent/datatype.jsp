@@ -3,178 +3,196 @@
 <head>
 <title>NUS_Web</title>
 <link rel="stylesheet"
-   href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel='stylesheet' href='contextmenu3.css' />
 <style>
 th, td {
-   padding: 5px;
-   text-align: left;
+	padding: 5px;
+	text-align: left;
 }
 </style>
 <script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script
-   src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 <script src="go.js"></script>
 <script src="go-debug.js"></script>
 <script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <style type="text/css">
 /* CSS for the traditional context menu */
 #contextMenu {
-   z-index: 300;
-   position: absolute;
-   left: 5px;
-   border: 1px solid #444;
-   background-color: #F5F5F5;
-   display: none;
-   box-shadow: 0 0 10px rgba(0, 0, 0, .4);
-   font-size: 12px;
-   font-family: sans-serif;
-   font-weight: bold;
+	z-index: 300;
+	position: absolute;
+	left: 5px;
+	border: 1px solid #444;
+	background-color: #F5F5F5;
+	display: none;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+	font-size: 12px;
+	font-family: sans-serif;
+	font-weight: bold;
 }
 
 #contextMenu ul {
-   list-style: none;
-   top: 0;
-   left: 0;
-   margin: 0;
-   padding: 0;
+	list-style: none;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
 }
 
 #contextMenu li a {
-   position: relative;
-   min-width: 60px;
-   color: #444;
-   display: inline-block;
-   padding: 6px;
-   text-decoration: none;
-   cursor: pointer;
+	position: relative;
+	min-width: 60px;
+	color: #444;
+	display: inline-block;
+	padding: 6px;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 #contextMenu li:hover {
-   background: #CEDFF2;
-   color: #EEE;
+	background: #CEDFF2;
+	color: #EEE;
 }
 
 #contextMenu li ul li {
-   display: none;
+	display: none;
 }
 
 #contextMenu li ul li a {
-   position: relative;
-   min-width: 60px;
-   padding: 6px;
-   text-decoration: none;
-   cursor: pointer;
+	position: relative;
+	min-width: 60px;
+	padding: 6px;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 #contextMenu li:hover ul li {
-   display: block;
-   margin-left: 0px;
-   margin-top: 0px;
+	display: block;
+	margin-left: 0px;
+	margin-top: 0px;
 }
 </style>
 </head>
 
 <body onload="init()">
 
-   <div id="sample">
+	<div id="sample">
 
-      <div style="width: 100%; white-space: nowrap;">
+		<div style="width: 100%; white-space: nowrap;">
 
-         <span
-            style="display: inline-block; vertical-align: top; padding: 5px; width: 82.5%">
-            <div id="myDiagramDiv"
-               style="border: solid 1px black; height: 620px"></div>
-            <div id="contextMenu">
-               <ul>
-                  <li id="isTemp" class="hasSubMenu"><a href="#" target="_self">Type</a>
-                     <ul class="subMenu" id="colorSubMenu">
-                        <li style="background: crimson;"
-                           onclick="cxcommand(event, 'isTemp')" name="true"><a
-                           href="#" target="_self" name="true">Temporal</a></li>
-                        <li style="background: chartreuse;"
-                           onclick="cxcommand(event, 'isTemp')" name="fasle"><a
-                           href="#" target="_self" name="false">None</a></li>
+			<span
+				style="display: inline-block; vertical-align: top; padding: 5px; width: 82.5%">
+				<div id="myDiagramDiv"
+					style="border: solid 1px black; height: 620px"></div>
+				<div id="contextMenu">
+					<ul>
+						<li id="typeSelect" class="hasSubMenu"><a href="#"
+							target="_self">Type</a>
+							<ul class="subMenu" id="colorSubMenu">
+								<li style="background: crimson;"
+									onclick="cxcommand(event, 'BIT')" name="BIT"><a href="#"
+									target="_self" name="true">BIT</a></li>
+								<li style="background: chartreuse;"
+									onclick="cxcommand(event, 'INT')" name="INT"><a href="#"
+									target="_self" name="false">INT</a></li>
+								<li style="background: chartreuse;"
+									onclick="cxcommand(event, 'DECIMAL')" name="DECIMAL"><a
+									href="#" target="_self" name="false">DECIMAL</a></li>
+								<li style="background: chartreuse;"
+									onclick="cxcommand(event, 'FLOAT')" name="FLOAT"><a
+									href="#" target="_self" name="false">FLOAT</a></li>
+								<li style="background: chartreuse;"
+									onclick="cxcommand(event, 'VARCHAR')" name="VARCHAR"><a
+									href="#" target="_self" name="false">VARCHAR</a></li>
+								<li style="background: chartreuse;"
+									onclick="cxcommand(event, 'DATETIME')" name="DATETIME"><a
+									href="#" target="_self" name="false">DATETIME</a></li>
+								<li style="background: chartreuse;"
+									onclick="cxcommand(event, 'TIMESTAMP')" name="TIMESTAMP"><a
+									href="#" target="_self" name="false">TIMESTAMP</a></li>
+							</ul></li>
+					</ul>
+				</div>
+				<div id="contextMenu3">
+					<ul>
+					</ul>
+				</div>
+			</span> <span
+				style="display: inline-block; vertical-align: top; padding: 7px; width: 250px">
+				<div style="height: 620px; vertical-align: top">
+					<table>
+						<tr>
+							<td><Input type="submit" class="btn btn-warning"
+								name="Create" id="CreateButton" value="Create"
+								onclick="location.href='main.jsp'" disabled="disabled"
+								style="font-size: 50px; width: 230px; height: 90px"></td>
+						</tr>
+						<tr>
+							<td><Input type="submit" class="btn btn-warning" name="Load"
+								id="LoadButton" value="Load" onclick="openChild()"
+								disabled="disabled"
+								style="font-size: 50px; width: 230px; height: 90px"></td>
+						</tr>
+						<tr>
+							<a id="down" href="" download="">
+								<td><Input type="submit" class="btn btn-warning"
+									name="Save" id="SavedButton" value="Save" onclick="save()"
+									style="font-size: 50px; width: 230px; height: 90px"></td>
+							</a>
+						</tr>
+						<tr>
+							<form ACTION="http://localhost:8080/DBProject/ERCreater"
+								method="POST">
+								<input type="hidden" id="ERJson" name="ERJson" value="" /> <input
+									type="submit" id="submit" style="display: none;" />
+							</form>
+							<td><Input type="submit" class="btn btn-warning"
+								name="Validate" id="ValidateButton" value="Validate"
+								disabled="disabled" onclick="validClick()"
+								style="font-size: 50px; width: 230px; height: 90px"></td>
+						</tr>
+						<tr>
+							<td><Input type="submit" class="btn btn-warning"
+								name="Annotate" id="AnnotateButton" value="Back"
+								onclick="window.history.back();"
+								style="font-size: 50px; width: 230px; height: 90px"></td>
+						</tr>
+						<tr>
+							<form ACTION="http://localhost:8080/DBProject/Translate"
+								method="POST">
+								<input type="hidden" id="ERJson4" name="ERJson4" value="" /> <input
+									type="submit" id="submit_tran" style="display: none;" />
+							</form>
+							<td><Input type="submit" class="btn btn-warning"
+								name="Translate" id="TranslateButton" value="Conceptual Schema"
+								onclick="translateClick()"
+								style="font-size: 20px; width: 230px; height: 90px"></td>
+						</tr>
+						<tr>
+							<td><Input type="submit" class="btn btn-warning"
+								name="Query" id="QueryButton" value="SQL Schema Definition"
+								disabled="disabled"
+								style="font-size: 20px; width: 230px; height: 90px"></td>
+						</tr>
+					</table>
+				</div>
+			</span>
+		</div>
+		<Span
+			style="display: inline-block; vertical-align: top; padding: 5px; width: 80%">
+		</Span>
 
-                     </ul></li>
-               </ul>
-            </div>
-            <div id="contextMenu3">
-               <ul>
-               </ul>
-            </div>
-         </span> <span
-            style="display: inline-block; vertical-align: top; padding: 7px; width: 250px">
-            <div style="height: 620px; vertical-align: top">
-               <table>
-                  <tr>
-                     <td><Input type="submit" class="btn btn-warning"
-                        name="Create" id="CreateButton" value="Create"
-                        onclick="location.href='main.jsp'" disabled="disabled"
-                        style="font-size: 50px; width: 230px; height: 90px"></td>
-                  </tr>
-                  <tr>
-                     <td><Input type="submit" class="btn btn-warning" name="Load"
-                        id="LoadButton" value="Load" onclick="openChild()"
-                        disabled="disabled"
-                        style="font-size: 50px; width: 230px; height: 90px"></td>
-                  </tr>
-                  <tr>
-                     <a id="down" href="" download="">
-                        <td><Input type="submit" class="btn btn-warning"
-                           name="Save" id="SavedButton" value="Save" onclick="save()"
-                           style="font-size: 50px; width: 230px; height: 90px"></td>
-                     </a>
-                  </tr>
-                  <tr>
-                     <form ACTION="http://localhost:8080/DBProject/ERCreater" method="POST">
-                        <input type="hidden" id="ERJson" name="ERJson" value="" /> <input
-                           type="submit" id="submit" style="display: none;" />
-                     </form>
-                     <td><Input type="submit" class="btn btn-warning"
-                        name="Validate" id="ValidateButton" value="Validate"
-                        disabled="disabled" onclick="validClick()"
-                        style="font-size: 50px; width: 230px; height: 90px"></td>
-                  </tr>
-                  <tr>
-                     <td><Input type="submit" class="btn btn-warning"
-                        name="Annotate" id="AnnotateButton" value="Back"
-                        onclick="window.history.back();"
-                        style="font-size: 50px; width: 230px; height: 90px"></td>
-                  </tr>
-                  <tr>
-                     <form ACTION="http://localhost:8080/DBProject/Translate" method="POST">
-                        <input type="hidden" id="ERJson4" name="ERJson4" value="" /> 
-                        <input type="submit" id="submit_tran" style="display: none;" />
-                     </form>
-                     <td><Input type="submit" class="btn btn-warning"
-                        name="Translate" id="TranslateButton" value="Conceptual Schema"
-                        onclick="translateClick()"
-                        style="font-size: 20px; width: 230px; height: 90px"></td>
-                  </tr>
-                  <tr>
-                     <td><Input type="submit" class="btn btn-warning"
-                        name="Query" id="QueryButton" value="SQL Schema Definition" disabled="disabled"
-                        style="font-size: 20px; width: 230px; height: 90px"></td>
-                  </tr>
-               </table>
-            </div>
-         </span>
-      </div>
-      <Span
-         style="display: inline-block; vertical-align: top; padding: 5px; width: 80%">
-      </Span>
+		<div id="invisible">
+			<div>
+				<button id="SaveButton" onclick="save()">Save</button>
+				Diagram Model saved in JSON format:
+			</div>
 
-      <div id="invisible">
-         <div>
-            <button id="SaveButton" onclick="save()">Save</button>
-            Diagram Model saved in JSON format:
-         </div>
-
-         <textarea id="mySavedModel" style="width: 100%; height: 300px">
+			<textarea id="mySavedModel" style="width: 100%; height: 300px">
            <% 
               request.setCharacterEncoding("euc-kr");
               String a = request.getParameter("diagram");
@@ -182,11 +200,11 @@ th, td {
            %>
            <%= a %>
     </textarea>
-          <textarea id="mySavedModel2" style="width: 100%; height: 300px"
-            name="ERJson">{ "class": "go.GraphLinksModel","linkFromPortIdProperty": "fromPort","linkToPortIdProperty": "toPort","nodeDataArray": [],"linkDataArray": []}</textarea>
-      </div>
-   </div>
-   </Span>
+			<textarea id="mySavedModel2" style="width: 100%; height: 300px"
+				name="ERJson">{ "class": "go.GraphLinksModel","linkFromPortIdProperty": "fromPort","linkToPortIdProperty": "toPort","nodeDataArray": [],"linkDataArray": []}</textarea>
+		</div>
+	</div>
+	</Span>
 </body>
 <script>
    $(document).ready(function() {
@@ -533,7 +551,7 @@ th, td {
          // Show only the relevant buttons given the current state.
          var cmd = diagram.commandHandler;
          var objExists = obj !== null;
-         document.getElementById("isTemp").style.display = objExists ? "block"
+         document.getElementById("typeSelect").style.display = objExists ? "block"
                : "none";
 
          // Now show the whole context menu element
@@ -592,20 +610,36 @@ th, td {
          val = event.currentTarget.id;
       var diagram = myDiagram;
       switch (val) {
-      case "isTemp": {
-         //var istemp = window.getComputedStyle(document.elementFromPoint(event.clientX, event.clientY).parentElement)["background-color"];
-         var istemp = document
-               .elementFromPoint(event.clientX, event.clientY).name;
-         //var istemp = document.getElementById("test_id").getAttribute('name');
-
-         changeType(diagram, istemp);
+   // BIT, INT, DECIMAL, VARCHAR, DATETIME, TIMESTAMP
+      case "BIT": {
+         changeType(diagram, "BIT");
          break;
-      }
+       }
+      case "INT": {
+          changeType(diagram, "INT");
+          break;
+       }
+      case "DECIMAL": {
+          changeType(diagram, "DECIMAL");
+          break;
+       }
+      case "VARCHAR": {
+          changeType(diagram, "VARCHAR");
+          break;
+       }
+      case "DATETIME": {
+          changeType(diagram, "DATETIME");
+          break;
+       }
+      case "TIMESTAMP": {
+          changeType(diagram, "TIMESTAMP");
+          break;
+       }
       }
       diagram.currentTool.stopTool();
    }
 
-   function changeType(diagram, istemp) {
+   function changeType(diagram, datatype) {
       // Always make changes in a transaction, except when initializing the diagram.
       diagram.startTransaction("change");
       diagram.selection.each(function(node) {
@@ -616,18 +650,8 @@ th, td {
             var sub2 = sub.substring(0, sub.length - 2);
             console.log(data.Type);
             
-            // Call setDataProperty to support undo/redo as well as
-            // automatically evaluating any relevant bindings.
-            if (istemp == "true") {
-               if (data.isTemp == "false")
-                  diagram.model.setDataProperty(data, "text", data.text
-                        + " \u1D40");
-            } else {
-               if (data.isTemp == "true")
-                  diagram.model.setDataProperty(data, "text", sub2);
-
-            }
-            diagram.model.setDataProperty(data, "isTemp", istemp);
+            diagram.model.setDataProperty(data, "dataType", datatype);
+            //console.log(data.dataType);
          }
       });
       diagram.commitTransaction("change");

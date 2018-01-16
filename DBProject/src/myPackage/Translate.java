@@ -3,6 +3,7 @@ package myPackage;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  * Servlet implementation class Translate
@@ -38,9 +42,38 @@ public class Translate extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		RequestDispatcher dispatcher = null;
 		String jsonTString = request.getParameter("ERJson4");
+		JSONParser parser = new JSONParser();
+		JSONObject stringToJson;
+		HashMap<String, String> typeMap = new HashMap<>();
 		String query = new String();
 		String table = new String();
-
+		
+		
+		try {
+			stringToJson = (JSONObject)parser.parse(jsonTString);
+			JSONArray nodeArr = (JSONArray) stringToJson.get("nodeDataArray");
+			
+			for (int i = 0; i < nodeArr.size(); i++) {
+				JSONObject eachNodeObject = (JSONObject)parser.parse(nodeArr.get(i).toString());
+				System.out.println(eachNodeObject.toJSONString());
+				System.out.println("text : " + eachNodeObject.get("text"));
+				try {
+					String name = eachNodeObject.get("text").toString();
+					String dataType = eachNodeObject.get("dataType").toString();
+					typeMap.put(name, dataType);
+					System.out.println(name + " | " + dataType);
+				}catch(Exception e) {
+					// Do Nothing
+				}
+			}
+			
+//			System.out.println("jsonTString test : " + nodeArr.toJSONString());
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
 		MakeTable mt = new MakeTable();
 		MakeQuery mk = new MakeQuery();
 
